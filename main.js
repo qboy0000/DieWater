@@ -48,6 +48,8 @@
  */
 
 cc.game.onStart = function(){
+    ShareSDKHelper.init();
+    //ShareSDKHelper.init();
     cc.view.adjustViewPort(true);
     cc.view.setDesignResolutionSize(640, 1136, cc.ResolutionPolicy.SHOW_ALL);
     cc.view.resizeWithBrowserSize(true);

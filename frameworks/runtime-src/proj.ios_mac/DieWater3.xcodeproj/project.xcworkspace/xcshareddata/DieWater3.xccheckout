@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>23EE35B5-13DD-4B84-B275-AFBDA7EB79FB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DieWater3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BCABE9B56098AFC49D38071669F5DB8BC1CE6E2A</key>
+		<string>https://github.com/Judecheng123/DieWater.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>frameworks/runtime-src/proj.ios_mac/DieWater3.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BCABE9B56098AFC49D38071669F5DB8BC1CE6E2A</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Judecheng123/DieWater.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BCABE9B56098AFC49D38071669F5DB8BC1CE6E2A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BCABE9B56098AFC49D38071669F5DB8BC1CE6E2A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DieWater3</string>
+		</dict>
+	</array>
+</dict>
+</plist>

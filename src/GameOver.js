@@ -2,6 +2,9 @@
  * Created by 丘国伟 on 14-9-24.
  */
 
+//require("./ShareSDKJSApi/ShareSDK.js");
+//require("./ShareSDKHelper.js");
+
 GameOver = cc.LayerColor.extend({
     ctor:function(){
         this._super();
@@ -34,8 +37,12 @@ GameOver = cc.LayerColor.extend({
         var restartItem = new cc.MenuItemImage(
             res.MENUITEM_PNG.RESTART_PNG,
             res.MENUITEM_PNG.RESTART_PNG,
-            function () {
-                cc.log("Menu is clicked!");
+            function (a,b,c) {
+                if(this.owerner && this.owerner.restart){
+                    this.owerner.restart();
+                }
+                this.removeFromParent();
+                cc.log("Restart Menu is clicked!");
             }, this);
         restartItem.attr({
             x: size.width >> 1,
@@ -48,7 +55,11 @@ GameOver = cc.LayerColor.extend({
             res.MENUITEM_PNG.SHARE_PNG,
             res.MENUITEM_PNG.SHARE_PNG,
             function () {
-                cc.log("Menu is clicked!");
+                cc.log("Share Menu is clicked!");
+
+                ShareSDKHelper.share(function(){
+                   alert("success!");
+                });
             }, this);
         shareItem.attr({
             x: size.width >> 1,

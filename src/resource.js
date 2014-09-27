@@ -8,7 +8,9 @@ var res = {
             MENU_PNG:"res/menuItem.png",        //MENU
             RESTART_PNG:"res/restartItem.png",  //RESTART
             SETTINGS_PNG:"res/settingsItem.png",//SETTINGS
-            SHARE_PNG:"res/shareItem.png"       //SHARE
+            SHARE_PNG:"res/shareItem.png",      //SHARE
+            RANKING_PNG:"res/rankingItem.png",  //RANKING
+            RESTART_S_PNG:"res/restartItem_s.png"//RESTART_SMALL
         },
         BG_COLOR:cc.color(250,248,239)
 };
