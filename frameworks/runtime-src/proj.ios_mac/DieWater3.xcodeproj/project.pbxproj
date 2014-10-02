@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10A034EA19DD06ED00266A78 /* GChelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10A034E919DD06ED00266A78 /* GChelper.mm */; };
+		10A034EC19DD071500266A78 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A034EB19DD071500266A78 /* GameKit.framework */; };
+		10A034EF19DD0CE700266A78 /* GameCenter_Bridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10A034ED19DD0CE700266A78 /* GameCenter_Bridge.cpp */; };
 		1A676829180E9C060076BC67 /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB4C180E9ACB004C840B /* libchipmunk Mac.a */; };
 		1A67682A180E9C060076BC67 /* libcocos2dx Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB48180E9ACB004C840B /* libcocos2dx Mac.a */; };
 		1A67682B180E9C060076BC67 /* libcocos2dx-extensions Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB4A180E9ACB004C840B /* libcocos2dx-extensions Mac.a */; };
@@ -281,6 +284,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10A034E719DD06ED00266A78 /* GameCenterHelper-Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GameCenterHelper-Interface.h"; path = "ios/GameCenterHelper-Interface.h"; sourceTree = "<group>"; };
+		10A034E819DD06ED00266A78 /* GChelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GChelper.h; path = ios/GChelper.h; sourceTree = "<group>"; };
+		10A034E919DD06ED00266A78 /* GChelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GChelper.mm; path = ios/GChelper.mm; sourceTree = "<group>"; };
+		10A034EB19DD071500266A78 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		10A034ED19DD0CE700266A78 /* GameCenter_Bridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameCenter_Bridge.cpp; path = ios/GameCenter_Bridge.cpp; sourceTree = "<group>"; };
+		10A034EE19DD0CE700266A78 /* GameCenter_Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenter_Bridge.h; path = ios/GameCenter_Bridge.h; sourceTree = "<group>"; };
 		1A1A081B18C9DF05005C6854 /* project.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = project.json; path = ../../../project.json; sourceTree = "<group>"; };
 		1A6BF21418C9DB5900FB0E1C /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../../../main.js; sourceTree = "<group>"; };
 		1A82F5FA169AC92500C4B13A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -422,6 +431,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10A034EC19DD071500266A78 /* GameKit.framework in Frameworks */,
 				C037820C18BF77C500FE4F13 /* libjsbindings iOS.a in Frameworks */,
 				1A676838180E9C1E0076BC67 /* libchipmunk iOS.a in Frameworks */,
 				1A676839180E9C1E0076BC67 /* libcocos2dx iOS.a in Frameworks */,
@@ -444,6 +454,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10A034E219DD05BE00266A78 /* GC */ = {
+			isa = PBXGroup;
+			children = (
+				10A034E719DD06ED00266A78 /* GameCenterHelper-Interface.h */,
+				10A034E819DD06ED00266A78 /* GChelper.h */,
+				10A034E919DD06ED00266A78 /* GChelper.mm */,
+				10A034ED19DD0CE700266A78 /* GameCenter_Bridge.cpp */,
+				10A034EE19DD0CE700266A78 /* GameCenter_Bridge.h */,
+			);
+			name = GC;
+			sourceTree = "<group>";
+		};
 		15628F5B15F0F5C2000CF24B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +633,7 @@
 		A92275401517C094001B78AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10A034EB19DD071500266A78 /* GameKit.framework */,
 				D6B061231803AB9F0077942B /* CoreMotion.framework */,
 				502380DB17EBB88200990C9B /* libcurl.dylib */,
 				509D4AEA17EBB82600697056 /* IOKit.framework */,
@@ -669,6 +692,7 @@
 		D45446CC156DE73F00887EB5 /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				10A034E219DD05BE00266A78 /* GC */,
 				509D4AAB17EBB2AB00697056 /* AppController.h */,
 				509D4AAC17EBB2AB00697056 /* AppController.mm */,
 				509D4AAD17EBB2AB00697056 /* Default-568h@2x.png */,
@@ -1005,10 +1029,12 @@
 				3E12D1E11957FB18002FF0FD /* repeated_field.cc in Sources */,
 				C00FD4B41938628E00C6382D /* PlayDisable_png.cpp in Sources */,
 				C00FD4BC1938628E00C6382D /* Shine_png.cpp in Sources */,
+				10A034EA19DD06ED00266A78 /* GChelper.mm in Sources */,
 				3E12D1EB1957FB18002FF0FD /* wire_format_lite.cc in Sources */,
 				3E12D1D51957FB18002FF0FD /* extension_set.cc in Sources */,
 				509D4AC817EBB2AB00697056 /* main.m in Sources */,
 				3E12D1E91957FB18002FF0FD /* stringprintf.cc in Sources */,
+				10A034EF19DD0CE700266A78 /* GameCenter_Bridge.cpp in Sources */,
 				3E12D1E51957FB18002FF0FD /* common.cc in Sources */,
 				C033B524191B36AE00D06937 /* VisibleRect.cpp in Sources */,
 				3E12D1D71957FB18002FF0FD /* generated_message_util.cc in Sources */,
