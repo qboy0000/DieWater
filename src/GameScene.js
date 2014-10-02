@@ -327,7 +327,7 @@ GameLayer = cc.Layer.extend({
     },
     addWater: function () {
         var num = 1;
-        if (Math.random() * 10 < 2.5) {
+        if (Math.random() * 10 < 2) {
             num = 2;
         }
 

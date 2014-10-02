@@ -18,7 +18,7 @@ FrameBroder.create = function(){
 	
 }
 
-FrameBroder.DefaultWidth = 114;
+FrameBroder.DefaultWidth = 118;
 FrameBroder.DefaultHeight = 118;
 
 //FrameBroder.property.addLable = function(i,j)
