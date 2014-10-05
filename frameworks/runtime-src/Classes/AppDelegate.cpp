@@ -98,6 +98,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     sc->addRegisterCallback(JavascriptJavaBridge::_js_register);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS|| CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
     sc->addRegisterCallback(JavaScriptObjCBridge::_js_register);
+    //sc->addRegisterCallback(JSB_register_GCAPI);
 #endif
     
 #if (COCOS2D_DEBUG>0)

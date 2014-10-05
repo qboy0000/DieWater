@@ -77,7 +77,7 @@ GameLayer = cc.Layer.extend({
         this.addChild(this._moveCountLabel);
         this._moveCountLabel.setFontFillColor(cc.color(187, 173, 160));
 
-        this.addWater();
+        this.addWater(5);
 
         this._besetScore = cc.sys.localStorage.getItem("BestScore");
         this._besetScore = this._besetScore || 0;
@@ -105,8 +105,8 @@ GameLayer = cc.Layer.extend({
         }
         this._moveCount = 0;//移动次数
         this._score = 0;
-
-        this.scheduleOnce(this.addWater, 0.2);
+        this.addWater(5);
+        //this.scheduleOnce(this.addWater, 0.2);
 
         this.updateLabel();
     },
@@ -127,22 +127,23 @@ GameLayer = cc.Layer.extend({
             anchorY: 0.5
         });
 
-        var shareItem = new cc.MenuItemImage(
+        var ranking = new cc.MenuItemImage(
             res.MENUITEM_PNG.RANKING_PNG,
             res.MENUITEM_PNG.RANKING_PNG,
             function () {
-                cc.log("Share Menu is clicked!");
-
-
+                //jsb_register_reportScore(100);
+                if(jsb_register_ranking){
+                    jsb_register_ranking();
+                }
             }, this);
-        shareItem.attr({
+        ranking.attr({
             x: restartItem.x+120,
             y: y,
             anchorX: 0.5,
             anchorY: 0.5
         });
 
-        var menu = new cc.Menu([restartItem,shareItem]);
+        var menu = new cc.Menu([restartItem,ranking]);
         menu.x = 0;
         menu.y = 0;
         this.addChild(menu, 1);
@@ -205,6 +206,7 @@ GameLayer = cc.Layer.extend({
         if(this._score>this._besetScore)
         {
             this._besetScore = this._score;
+            jsb_register_reportScore(this._besetScore);
             cc.sys.localStorage.setItem("BestScore",this._besetScore);
             this._bestScoreLable.setString("Best Score:"+this._besetScore);
         }
@@ -325,9 +327,9 @@ GameLayer = cc.Layer.extend({
         beginWater.removeFromParent();
         endWater.removeFromParent();
     },
-    addWater: function () {
-        var num = 1;
-        if (Math.random() * 10 < 2) {
+    addWater: function (num) {
+        var num = num || 1;
+        if (num<2&&Math.random() * 10 < 2) {
             num = 2;
         }
 
