@@ -44,7 +44,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 {
     
 #if (COCOS2D_DEBUG>0)
-    //initRuntime();
+    initRuntime();
 #endif
     
     if (!ConfigParser::getInstance()->isInit()) {
@@ -102,8 +102,8 @@ bool AppDelegate::applicationDidFinishLaunching()
 #endif
     
 #if (COCOS2D_DEBUG>0)
-//    if (startRuntime())
-//        return true;
+    if (startRuntime())
+        return true;
 #endif
 
     sc->start();

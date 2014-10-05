@@ -327,9 +327,15 @@ GameLayer = cc.Layer.extend({
         beginWater.removeFromParent();
         endWater.removeFromParent();
     },
+<<<<<<< HEAD
     addWater: function (num) {
         var num = num || 1;
         if (num<2&&Math.random() * 10 < 2) {
+=======
+    addWater: function () {
+        var num = 1;
+        if (Math.random() * 10 < 2.5) {
+>>>>>>> parent of 5b0cd73... finish game
             num = 2;
         }
 
