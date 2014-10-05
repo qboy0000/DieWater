@@ -132,9 +132,9 @@ GameLayer = cc.Layer.extend({
             res.MENUITEM_PNG.RANKING_PNG,
             function () {
                 //jsb_register_reportScore(100);
-                if(jsb_register_ranking){
-                    jsb_register_ranking();
-                }
+//                if(jsb_register_ranking){
+//                    jsb_register_ranking();
+//                }
             }, this);
         ranking.attr({
             x: restartItem.x+120,
@@ -206,7 +206,11 @@ GameLayer = cc.Layer.extend({
         if(this._score>this._besetScore)
         {
             this._besetScore = this._score;
-            jsb_register_reportScore(this._besetScore);
+            if(jsb_register_reportScore)
+            {
+                jsb_register_reportScore(this._besetScore);
+            }
+
             cc.sys.localStorage.setItem("BestScore",this._besetScore);
             this._bestScoreLable.setString("Best Score:"+this._besetScore);
         }

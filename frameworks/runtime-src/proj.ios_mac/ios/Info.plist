@@ -65,7 +65,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.shunchengfeng.DieWater3</string>
+	<string>com.shunchengfeng.game.diewater</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
