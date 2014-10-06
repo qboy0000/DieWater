@@ -3,8 +3,8 @@
 
 
 GameLayer = cc.Layer.extend({
-    _horizontalCount: 5,//横向
-    _verticalCount: 5,//纵向
+    _horizontalCount: 2,//横向
+    _verticalCount: 2,//纵向
     _waterStateArr: null,//水位置状态，0代表无，其他是水的实例
     _waterFramer: null,
     _touchesPoint: null,
@@ -220,6 +220,26 @@ GameLayer = cc.Layer.extend({
         var dieCount = 0;
         if (isX) {
             if (endPoint.x > this._touchesPoint.x) {//To Right
+
+                for (var i = this._horizontalCount - 2; i >= 0; i--) {
+                    for (var j = this._verticalCount - 1; j >= 0; j--) {
+                        var curWater = this._waterStateArr[i][j];
+                        if (curWater == 0) {
+                            continue;
+                        }
+                        var nextWater = this._waterStateArr[i + 1][j];
+                        if (nextWater != 0) {
+                            if (nextWater._waterType == curWater._waterType) {
+                                this._waterStateArr[i][j] = 0;
+                                this._waterStateArr[i + 1][j] = 0;
+                                this.dieWater(curWater, nextWater);
+                                dieCount++;
+                                this._blMoving = true;
+                            }
+                        }
+                    }
+                }
+
                 for (var i = this._horizontalCount - 2; i >= 0; i--) {
                     for (var j = this._verticalCount - 1; j >= 0; j--) {
                         var curWater = this._waterStateArr[i][j];
@@ -245,6 +265,25 @@ GameLayer = cc.Layer.extend({
                 }
 
             } else {//To Left
+                for (var i = 1; i < this._horizontalCount; i++) {
+                    for (var j = this._verticalCount - 1; j >= 0; j--) {
+                        var curWater = this._waterStateArr[i][j];
+                        if (curWater == 0) {
+                            continue;
+                        }
+                        var nextWater = this._waterStateArr[i - 1][j];
+                        if (nextWater != 0) {
+                            if (nextWater._waterType == curWater._waterType) {
+                                this._waterStateArr[i][j] = 0;
+                                this._waterStateArr[i - 1][j] = 0;
+                                this.dieWater(curWater, nextWater);
+                                dieCount++;
+                                this._blMoving = true;
+                            }
+
+                        }
+                    }
+                }
                 for (var i = 1; i < this._horizontalCount; i++) {
                     for (var j = this._verticalCount - 1; j >= 0; j--) {
                         var curWater = this._waterStateArr[i][j];
@@ -288,6 +327,24 @@ GameLayer = cc.Layer.extend({
                                 dieCount++;
                                 this._blMoving = true;
                             }
+                        }
+                    }
+                }
+                for (var j = this._horizontalCount - 2; j >= 0; j--) {
+                    for (var i = this._horizontalCount - 1; i >= 0; i--) {
+                        var curWater = this._waterStateArr[i][j];
+                        if (curWater == 0) {
+                            continue;
+                        }
+                        var nextWater = this._waterStateArr[i][j + 1];
+                        if (nextWater != 0) {
+                            if (nextWater._waterType == curWater._waterType) {
+                                this._waterStateArr[i][j] = 0;
+                                this._waterStateArr[i][j + 1] = 0;
+                                this.dieWater(curWater, nextWater);
+                                dieCount++;
+                                this._blMoving = true;
+                            }
                         } else {
                             curWater.setPosition(this._waterFramer[i][j + 1].getPosition());
                             this._waterStateArr[i][j + 1] = curWater;
@@ -298,6 +355,25 @@ GameLayer = cc.Layer.extend({
                 }
             } else //To Down
             {
+                for (var j = 1; j < this._verticalCount; j++) {
+                    for (var i = this._horizontalCount - 1; i >= 0; i--) {
+                        var curWater = this._waterStateArr[i][j];
+                        if (curWater == 0) {
+                            continue;
+                        }
+                        var nextWater = this._waterStateArr[i][j - 1];
+                        if (nextWater != 0) {
+                            if (nextWater._waterType == curWater._waterType) {
+                                this._waterStateArr[i][j] = 0;
+                                this._waterStateArr[i][j - 1] = 0;
+                                this.dieWater(curWater, nextWater);
+                                dieCount++;
+                                this._blMoving = true;
+                            }
+                        }
+                    }
+                }
+
                 for (var j = 1; j < this._verticalCount; j++) {
                     for (var i = this._horizontalCount - 1; i >= 0; i--) {
                         var curWater = this._waterStateArr[i][j];
@@ -358,7 +434,7 @@ GameLayer = cc.Layer.extend({
             }
         }
         if (!this.checkFail()) {
-            var gameOver = GameOver.create();
+            var gameOver = GameOver.createWithScoreAndMove(this._score,this._moveCount);
             gameOver.owerner = this;
             this.addChild(gameOver, 10);
             cc.log("Game Over");

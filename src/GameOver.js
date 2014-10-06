@@ -10,20 +10,38 @@ GameOver = cc.LayerColor.extend({
         this._super();
         var bgcolor = cc.color(res.BG_COLOR.r,res.BG_COLOR.g,res.BG_COLOR.b,200);
         this.init(bgcolor);
-        this.initLayer();
+        //this.initLayer();
         return true;
     },
-    initLayer:function()
+    initLayer:function(score,move)
     {
+        score = score || 0;
+        move = score || 0;
         var size = cc.director.getWinSize();
 
         var gameover = new cc.LabelTTF("Game Over!", "Arial", 94);
         // position the label on the center of the screen
         gameover.x = size.width / 2;
-        gameover.y = size.height * 4 / 5;
+        gameover.y = size.height - 80;
         gameover.setFontFillColor(cc.color(119,110,101));
         // add the label as a child to this layer
         this.addChild(gameover, 5);
+
+        var scoreLabel = new cc.LabelTTF("Your Score:"+score, "Arial", 60);
+        // position the label on the center of the screen
+        scoreLabel.x = size.width / 2;
+        scoreLabel.y = size.height/2+240;
+        scoreLabel.setFontFillColor(cc.color(119,110,101));
+        // add the label as a child to this layer
+        this.addChild(scoreLabel, 5);
+
+        var moveLabel = new cc.LabelTTF("Your Move:"+move, "Arial", 60);
+        // position the label on the center of the screen
+        moveLabel.x = size.width / 2;
+        moveLabel.y = size.height/2 + 180;
+        moveLabel.setFontFillColor(cc.color(119,110,101));
+        // add the label as a child to this layer
+        this.addChild(moveLabel, 5);
     },
     onEnter:function()
     {
@@ -75,8 +93,9 @@ GameOver = cc.LayerColor.extend({
     }
 });
 
-GameOver.create = function()
+GameOver.createWithScoreAndMove = function(score,move)
 {
     var go = new GameOver();
+    go.initLayer(score,move);
     return go;
 }

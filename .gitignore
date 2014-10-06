@@ -4,3 +4,7 @@ runtime
 tools
 frameworks/cocos2d-html5
 frameworks/js-bindings
+frameworks/runtime-src/proj.ios_mac/build
+UserInterfaceState.xcuserstate
+*.o
+xcuserdata
