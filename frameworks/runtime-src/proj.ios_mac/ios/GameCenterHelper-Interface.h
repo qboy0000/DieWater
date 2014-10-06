@@ -9,10 +9,9 @@
 #ifndef Flip_GameCenterHelper_Interface_h
 #define Flip_GameCenterHelper_Interface_h
 
-//#define ACH_100_STARTS "com.shunchengfeng.game.flip.100star"
-#define ACH_Get_START  "com.shunchengfeng.game.flip.GetStar"
 
 #define LeaderBorder_Score_ID "com.shunchengfeng.game.diewater.score"
+#define LeaderBorder_Move_ID "com.shunchengfeng.game.diewater.move"
 //认证用户
 void authenticateLocalUserI();
 

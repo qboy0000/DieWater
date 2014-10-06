@@ -28,7 +28,6 @@
 @interface AppController : NSObject <UIAccelerometerDelegate, UIAlertViewDelegate, UITextFieldDelegate,UIApplicationDelegate>
 {
     UIWindow *window;
-    //RootViewController    *viewController;
 }
 
 @property(nonatomic, readonly) RootViewController* viewController;

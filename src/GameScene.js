@@ -211,16 +211,43 @@ GameLayer = cc.Layer.extend({
         if(this._score>this._besetScore)
         {
             this._besetScore = this._score;
-            jsb_register_reportScore(this._besetScore);
+            if(jsb_register_reportScore){
+                jsb_register_reportScore(this._besetScore);
+            }
             cc.sys.localStorage.setItem("BestScore",this._besetScore);
             this._bestScoreLable.setString("Best Score:"+this._besetScore);
         }
+
+        if(jsb_register_reportMove){
+            jsb_register_reportMove(this._moveCount);
+        }
+
     },
     moveWater: function (endPoint, isX) {
         cc.log("MoveWater");
         var dieCount = 0;
         if (isX) {
             if (endPoint.x > this._touchesPoint.x) {//To Right
+
+                for (var i = this._horizontalCount - 2; i >= 0; i--) {
+                    for (var j = this._verticalCount - 1; j >= 0; j--) {
+                        var curWater = this._waterStateArr[i][j];
+                        if (curWater == 0) {
+                            continue;
+                        }
+                        var nextWater = this._waterStateArr[i + 1][j];
+                        if (nextWater != 0) {
+                            if (nextWater._waterType == curWater._waterType) {
+                                this._waterStateArr[i][j] = 0;
+                                this._waterStateArr[i + 1][j] = 0;
+                                this.dieWater(curWater, nextWater);
+                                dieCount++;
+                                this._blMoving = true;
+                            }
+                        }
+                    }
+                }
+
                 for (var i = this._horizontalCount - 2; i >= 0; i--) {
                     for (var j = this._verticalCount - 1; j >= 0; j--) {
                         var curWater = this._waterStateArr[i][j];
@@ -246,6 +273,25 @@ GameLayer = cc.Layer.extend({
                 }
 
             } else {//To Left
+                for (var i = 1; i < this._horizontalCount; i++) {
+                    for (var j = this._verticalCount - 1; j >= 0; j--) {
+                        var curWater = this._waterStateArr[i][j];
+                        if (curWater == 0) {
+                            continue;
+                        }
+                        var nextWater = this._waterStateArr[i - 1][j];
+                        if (nextWater != 0) {
+                            if (nextWater._waterType == curWater._waterType) {
+                                this._waterStateArr[i][j] = 0;
+                                this._waterStateArr[i - 1][j] = 0;
+                                this.dieWater(curWater, nextWater);
+                                dieCount++;
+                                this._blMoving = true;
+                            }
+                        } else {
+                        }
+                    }
+                }
                 for (var i = 1; i < this._horizontalCount; i++) {
                     for (var j = this._verticalCount - 1; j >= 0; j--) {
                         var curWater = this._waterStateArr[i][j];
@@ -290,6 +336,26 @@ GameLayer = cc.Layer.extend({
                                 this._blMoving = true;
                             }
                         } else {
+
+                        }
+                    }
+                }
+                for (var j = this._horizontalCount - 2; j >= 0; j--) {
+                    for (var i = this._horizontalCount - 1; i >= 0; i--) {
+                        var curWater = this._waterStateArr[i][j];
+                        if (curWater == 0) {
+                            continue;
+                        }
+                        var nextWater = this._waterStateArr[i][j + 1];
+                        if (nextWater != 0) {
+                            if (nextWater._waterType == curWater._waterType) {
+                                this._waterStateArr[i][j] = 0;
+                                this._waterStateArr[i][j + 1] = 0;
+                                this.dieWater(curWater, nextWater);
+                                dieCount++;
+                                this._blMoving = true;
+                            }
+                        } else {
                             curWater.setPosition(this._waterFramer[i][j + 1].getPosition());
                             this._waterStateArr[i][j + 1] = curWater;
                             this._waterStateArr[i][j] = 0;
@@ -299,6 +365,25 @@ GameLayer = cc.Layer.extend({
                 }
             } else //To Down
             {
+                for (var j = 1; j < this._verticalCount; j++) {
+                    for (var i = this._horizontalCount - 1; i >= 0; i--) {
+                        var curWater = this._waterStateArr[i][j];
+                        if (curWater == 0) {
+                            continue;
+                        }
+                        var nextWater = this._waterStateArr[i][j - 1];
+                        if (nextWater != 0) {
+                            if (nextWater._waterType == curWater._waterType) {
+                                this._waterStateArr[i][j] = 0;
+                                this._waterStateArr[i][j - 1] = 0;
+                                this.dieWater(curWater, nextWater);
+                                dieCount++;
+                                this._blMoving = true;
+                            }
+                        } else {
+                        }
+                    }
+                }
                 for (var j = 1; j < this._verticalCount; j++) {
                     for (var i = this._horizontalCount - 1; i >= 0; i--) {
                         var curWater = this._waterStateArr[i][j];

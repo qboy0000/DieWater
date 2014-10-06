@@ -10,7 +10,7 @@ GameOver = cc.LayerColor.extend({
         this._super();
         var bgcolor = cc.color(res.BG_COLOR.r,res.BG_COLOR.g,res.BG_COLOR.b,200);
         this.init(bgcolor);
-        this.initLayer();
+        //this.initLayer();
         return true;
     },
     initLayer:function()
@@ -78,5 +78,6 @@ GameOver = cc.LayerColor.extend({
 GameOver.create = function()
 {
     var go = new GameOver();
+    go.initLayer();
     return go;
 }

@@ -40,7 +40,7 @@ ShareSDKHelper.auth = function()
 
 ShareSDKHelper.share = function(callback)
 {
-    debugger;
+
     //ShareSDK.shareContent()
     //ShareSDK.shareContent(ShareSDK.platformID.SinaWeibo, params, callback);
 }

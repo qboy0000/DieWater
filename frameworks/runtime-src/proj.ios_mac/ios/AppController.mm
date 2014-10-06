@@ -32,8 +32,11 @@
 #import "CCEAGLView.h"
 #include "ConfigParser.h"
 #import "GAI.h"
+#import <ShareSDK/ShareSDK.h>
 
 @implementation AppController
+
+#define SHARE_SDK_APP_KEY @"3381fa3208e8"
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -55,6 +58,7 @@ static AppDelegate s_sharedApplication;
     // Initialize tracker. Replace with your tracking ID.
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-22990429-3"];
 
+    [ShareSDK registerApp:SHARE_SDK_APP_KEY];
     
     // Override point for customization after application launch.
     
@@ -98,9 +102,14 @@ static AppDelegate s_sharedApplication;
     cocos2d::Director::getInstance()->setOpenGLView(glview);
 
     cocos2d::Application::getInstance()->run();
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:"]];
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [ShareSDK handleOpenURL:url
+                        wxDelegate:self];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*
