@@ -1,6 +1,9 @@
 .idea
 .settings
+UserInterfaceState.xcuserstate
 runtime
 tools
 frameworks/cocos2d-html5
 frameworks/js-bindings
+xcuserdata
+*.xcuserstate
