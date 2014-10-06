@@ -31,6 +31,7 @@
 #import "RootViewController.h"
 #import "CCEAGLView.h"
 #include "ConfigParser.h"
+#import "GAI.h"
 
 @implementation AppController
 
@@ -42,7 +43,19 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-22990429-3"];
 
+    
     // Override point for customization after application launch.
     
     ConfigParser::getInstance()->readConfig();
@@ -60,20 +73,20 @@ static AppDelegate s_sharedApplication;
     [eaglView setMultipleTouchEnabled:YES];
     
     // Use RootViewController manage CCEAGLView
-    viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
-    viewController.wantsFullScreenLayout = YES;
-    viewController.view = eaglView;
+    _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+    _viewController.wantsFullScreenLayout = YES;
+    _viewController.view = eaglView;
 
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
         // warning: addSubView doesn't work on iOS6
-        [window addSubview: viewController.view];
+        [window addSubview: _viewController.view];
     }
     else
     {
         // use this method on ios6
-        [window setRootViewController:viewController];
+        [window setRootViewController:_viewController];
     }
     
     [window makeKeyAndVisible];

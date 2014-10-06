@@ -23,6 +23,8 @@
 #include "platform/android/CCJavascriptJavaBridge.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 #include "platform/ios/JavaScriptObjCBridge.h"
+#include "GCAPI_JSB.h"
+#include "Admob_JSB.h"
 #endif
 
 #include "Runtime.h"
@@ -98,6 +100,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     sc->addRegisterCallback(JavascriptJavaBridge::_js_register);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS|| CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
     sc->addRegisterCallback(JavaScriptObjCBridge::_js_register);
+    sc->addRegisterCallback(JSB_register_GCAPI);
+    sc->addRegisterCallback(JSB_register_Admob);
 #endif
     
 #if (COCOS2D_DEBUG>0)

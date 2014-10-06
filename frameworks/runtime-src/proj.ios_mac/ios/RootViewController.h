@@ -24,9 +24,9 @@
  ****************************************************************************/
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-
-@interface RootViewController : UIViewController {
+@interface RootViewController : GAITrackedViewController {
 
 }
 - (BOOL)prefersStatusBarHidden;
