@@ -115,7 +115,7 @@ GameLayer = cc.Layer.extend({
     },
     addMenu:function(){
         var y = this._bestScoreLable.y;
-        var beginx = this._bestScoreLable.x+this._bestScoreLable.width+20;
+        var beginx = this._bestScoreLable.x+180;
         var size = cc.director.getWinSize();
         var restartItem = new cc.MenuItemImage(
             res.MENUITEM_PNG.RESTART_S_PNG,
