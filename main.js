@@ -49,14 +49,10 @@
 
 cc.game.onStart = function(){
     ShareSDKHelper.init();
-    debugger;
-    if(jsb_register_authenticateLocalUser){
-        jsb_register_authenticateLocalUser();
-    }
 
     //ShareSDKHelper.init();
     cc.view.adjustViewPort(true);
-    cc.view.setDesignResolutionSize(640, 1136, cc.ResolutionPolicy.FIXED_WIDTH);
+    cc.view.setDesignResolutionSize(640, 1136, cc.ResolutionPolicy.SHOW_ALL);
     cc.view.resizeWithBrowserSize(true);
     //jsb.reflection.callStaticMethod
     //load resources

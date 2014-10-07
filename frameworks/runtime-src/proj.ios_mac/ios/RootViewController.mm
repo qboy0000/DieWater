@@ -27,7 +27,6 @@
 #import "cocos2d.h"
 #import "CCEAGLView.h"
 #include "ConfigParser.h"
-#import "GAI.h"
 
 @implementation RootViewController
 
@@ -58,7 +57,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.screenName = @"RootViewScreen";
 }
 
 // Override to allow orientations other than the default portrait orientation.
