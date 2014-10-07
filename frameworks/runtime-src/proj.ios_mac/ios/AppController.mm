@@ -33,6 +33,7 @@
 #include "ConfigParser.h"
 #import "GAI.h"
 #import <ShareSDK/ShareSDK.h>
+#import "GameCenter_Bridge.h"
 
 @implementation AppController
 
@@ -46,6 +47,7 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    GameCenter_Bridge::authenticateLocalUserCPP();
     // Optional: automatically send uncaught exceptions to Google Analytics.
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     

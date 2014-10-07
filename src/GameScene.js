@@ -29,10 +29,10 @@ GameLayer = cc.Layer.extend({
 
         var size = cc.director.getWinSize();
 
-        var title = new cc.LabelTTF("Die Water", "Arial", 94);
+        var title = new cc.LabelTTF("Disapper Water", "Arial", 72);
         // position the label on the center of the screen
         title.x = size.width / 2;
-        title.y = size.height - 60;
+        title.y = size.height - 40;
         title.setFontFillColor(cc.color(119, 110, 101));
         this.addChild(title);
 
@@ -81,13 +81,14 @@ GameLayer = cc.Layer.extend({
 
         this._besetScore = cc.sys.localStorage.getItem("BestScore");
         this._besetScore = this._besetScore || 0;
-        this._bestScoreLable = new cc.LabelTTF("Best Score:"+ this._besetScore);
+        this._bestScoreLable = new cc.LabelTTF("Best:"+ this._besetScore);
 
         this._bestScoreLable.fontSize = 46;
         this._bestScoreLable.attr({
-            x: size.width * 0.25,
-            y: size.height / 2 + iconHeight * (this._horizontalCount) / 2 + 45
+            x: 30,
+            y: size.height / 2 + iconHeight * (this._horizontalCount) / 2 + 30
         });
+        this._bestScoreLable.setAnchorPoint(cc.p(0,0.5));
         this.addChild(this._bestScoreLable);
         this._bestScoreLable.setFontFillColor(cc.color(187, 173, 160));
         this.updateLabel();
@@ -117,6 +118,7 @@ GameLayer = cc.Layer.extend({
     },
     addMenu:function(){
         var y = this._bestScoreLable.y;
+        var beginx = this._bestScoreLable.x+this._bestScoreLable.width+20;
         var size = cc.director.getWinSize();
         var restartItem = new cc.MenuItemImage(
             res.MENUITEM_PNG.RESTART_S_PNG,
@@ -126,9 +128,9 @@ GameLayer = cc.Layer.extend({
                 cc.log("Restart Menu is clicked!");
             }, this);
         restartItem.attr({
-            x: this._bestScoreLable.x + (this._bestScoreLable.width+110)/2 +70,
+            x: beginx + 10,
             y: y,
-            anchorX: 0.5,
+            anchorX: 0,
             anchorY: 0.5
         });
 
@@ -144,11 +146,27 @@ GameLayer = cc.Layer.extend({
         ranking.attr({
             x: restartItem.x+120,
             y: y,
-            anchorX: 0.5,
+            anchorX: 0,
             anchorY: 0.5
         });
 
-        var menu = new cc.Menu([restartItem,ranking]);
+        var shareItem = new cc.MenuItemImage(
+            res.MENUITEM_PNG.SHARE_S_PNG,
+            res.MENUITEM_PNG.SHARE_S_PNG,
+            function () {
+                //jsb_register_reportScore(100);
+                if(jsb_register_shareContent){
+                    jsb_register_shareContent();
+                }
+            }, this);
+        shareItem.attr({
+            x: ranking.x+120,
+            y: y,
+            anchorX: 0,
+            anchorY: 0.5
+        });
+
+        var menu = new cc.Menu([restartItem,ranking,shareItem]);
         menu.x = 0;
         menu.y = 0;
         this.addChild(menu, 1);
@@ -200,7 +218,7 @@ GameLayer = cc.Layer.extend({
         if (me._blMoving) {
             me._blMoving = false;
             me._moveCount++;
-            me.scheduleOnce(me.addWater, 0.2);
+            me.scheduleOnce(me.addWater, 0.1);
 
             me.updateLabel();
         }
@@ -211,13 +229,14 @@ GameLayer = cc.Layer.extend({
         if(this._score>this._besetScore)
         {
             this._besetScore = this._score;
-            if(jsb_register_reportScore){
+            if(jsb_register_reportScore)
+            {
                 jsb_register_reportScore(this._besetScore);
             }
-            cc.sys.localStorage.setItem("BestScore",this._besetScore);
-            this._bestScoreLable.setString("Best Score:"+this._besetScore);
-        }
 
+            cc.sys.localStorage.setItem("BestScore",this._besetScore);
+            this._bestScoreLable.setString("Best:"+this._besetScore);
+        }
         if(jsb_register_reportMove){
             jsb_register_reportMove(this._moveCount);
         }
@@ -288,7 +307,7 @@ GameLayer = cc.Layer.extend({
                                 dieCount++;
                                 this._blMoving = true;
                             }
-                        } else {
+
                         }
                     }
                 }
@@ -335,8 +354,6 @@ GameLayer = cc.Layer.extend({
                                 dieCount++;
                                 this._blMoving = true;
                             }
-                        } else {
-
                         }
                     }
                 }
@@ -380,10 +397,10 @@ GameLayer = cc.Layer.extend({
                                 dieCount++;
                                 this._blMoving = true;
                             }
-                        } else {
                         }
                     }
                 }
+
                 for (var j = 1; j < this._verticalCount; j++) {
                     for (var i = this._horizontalCount - 1; i >= 0; i--) {
                         var curWater = this._waterStateArr[i][j];
@@ -444,10 +461,11 @@ GameLayer = cc.Layer.extend({
             }
         }
         if (!this.checkFail()) {
-            var gameOver = GameOver.create();
+            cc.log("Game Over score:"+this._score+" move:"+this._moveCount);
+            var gameOver = GameOver.createWithScoreAndMove(this._score,this._moveCount);
             gameOver.owerner = this;
             this.addChild(gameOver, 10);
-            cc.log("Game Over");
+
         }
     },
     checkFail: function () {

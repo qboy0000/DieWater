@@ -192,7 +192,7 @@ static GCHelper *sharedHelper = nil;
             // Gamekit login for ios 6
             [[GKLocalPlayer localPlayer] setAuthenticateHandler:(^(UIViewController* viewcontroller, NSError *error) {
                 if(error){
-                    NSLog(@"ERROR CODE:%d",[error code]);
+                    NSLog(@"ERROR CODE:%d MSG:%@",[error code],[[[error userInfo] allValues] objectAtIndex:0]);
                    // NSLog(error ge)
                 }
                 if (viewcontroller != nil) {

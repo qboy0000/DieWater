@@ -13,17 +13,45 @@ GameOver = cc.LayerColor.extend({
         //this.initLayer();
         return true;
     },
-    initLayer:function()
+    initLayer:function(score,move)
     {
+        score = score || 0;
+        move = move || 0;
         var size = cc.director.getWinSize();
 
         var gameover = new cc.LabelTTF("Game Over!", "Arial", 94);
         // position the label on the center of the screen
         gameover.x = size.width / 2;
-        gameover.y = size.height * 4 / 5;
+        gameover.y = size.height - 80;
         gameover.setFontFillColor(cc.color(119,110,101));
         // add the label as a child to this layer
         this.addChild(gameover, 5);
+
+        var bestScore = cc.sys.localStorage.getItem("BestScore");
+
+        var bestScoreLabel = new cc.LabelTTF("Best Score:"+bestScore, "Arial", 60);
+        // position the label on the center of the screen
+        bestScoreLabel.x = size.width / 2;
+        bestScoreLabel.y = size.height/2+270;
+        bestScoreLabel.setFontFillColor(cc.color(219,110,101));
+        // add the label as a child to this layer
+        this.addChild(bestScoreLabel, 5);
+
+        var scoreLabel = new cc.LabelTTF("Your Score:"+score, "Arial", 60);
+        // position the label on the center of the screen
+        scoreLabel.x = size.width / 2;
+        scoreLabel.y = size.height/2+200;
+        scoreLabel.setFontFillColor(cc.color(119,110,101));
+        // add the label as a child to this layer
+        this.addChild(scoreLabel, 5);
+
+        var moveLabel = new cc.LabelTTF("Your Move:"+move, "Arial", 60);
+        // position the label on the center of the screen
+        moveLabel.x = size.width / 2;
+        moveLabel.y = size.height/2 + 130;
+        moveLabel.setFontFillColor(cc.color(119,110,101));
+        // add the label as a child to this layer
+        this.addChild(moveLabel, 5);
     },
     onEnter:function()
     {
@@ -46,7 +74,7 @@ GameOver = cc.LayerColor.extend({
             }, this);
         restartItem.attr({
             x: size.width >> 1,
-            y: (size.height >> 1) + 70,
+            y: (size.height >> 1) + 20,
             anchorX: 0.5,
             anchorY: 0.5
         });
@@ -56,14 +84,11 @@ GameOver = cc.LayerColor.extend({
             res.MENUITEM_PNG.SHARE_PNG,
             function () {
                 cc.log("Share Menu is clicked!");
-
-                ShareSDKHelper.share(function(){
-                   alert("success!");
-                });
+                jsb_register_shareContent();
             }, this);
         shareItem.attr({
             x: size.width >> 1,
-            y: (size.height >> 1) - 70,
+            y: (size.height >> 1) - 120,
             anchorX: 0.5,
             anchorY: 0.5
         });
@@ -75,9 +100,9 @@ GameOver = cc.LayerColor.extend({
     }
 });
 
-GameOver.create = function()
+GameOver.createWithScoreAndMove = function(score,move)
 {
     var go = new GameOver();
-    go.initLayer();
+    go.initLayer(score,move);
     return go;
 }

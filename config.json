@@ -1,7 +1,7 @@
 {
   "init_cfg": {
     "isLandscape": false,
-    "name": "DieWater3",
+    "name": "Disappear Water",
     "width": 1136,
     "height": 640,
     "entry": "main.js",

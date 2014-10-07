@@ -52,7 +52,7 @@ bool jsb_register_reportMove(JSContext* cx,uint32_t argc,JS::Value* vp)
 
 bool jsb_register_authenticateLocalUser(JSContext* cx,uint32_t argc,JS::Value* vp)
 {
-    GameCenter_Bridge::authenticateLocalUserCPP();
+    //GameCenter_Bridge::authenticateLocalUserCPP();
     return true;
 }
 

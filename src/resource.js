@@ -10,7 +10,8 @@ var res = {
             SETTINGS_PNG:"res/settingsItem.png",//SETTINGS
             SHARE_PNG:"res/shareItem.png",      //SHARE
             RANKING_PNG:"res/rankingItem.png",  //RANKING
-            RESTART_S_PNG:"res/restartItem_s.png"//RESTART_SMALL
+            RESTART_S_PNG:"res/restartItem_s.png",//RESTART_SMALL
+            SHARE_S_PNG:"res/shareItem_s.png"//SHARE_SMALL
         },
         BG_COLOR:cc.color(250,248,239)
 };
