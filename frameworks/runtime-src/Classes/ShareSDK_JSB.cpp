@@ -21,7 +21,9 @@ bool jsb_register_shareContent(JSContext* cx,uint32_t argc,JS::Value* vp)
     content -> setObject(CCString::create("http://www.shunchengfeng.com"), "url");
     content -> setObject(CCString::createWithFormat("%d", C2DXContentTypeNews), "type");
     
-    C2DXShareSDK::showShareMenu(NULL, content, Point(100, 100), C2DXMenuArrowDirectionUp, NULL);
+    //C2DXShareSDK::s
+    
+    C2DXShareSDK::showShareMenu(NULL, content, CCPoint(100, 100), C2DXMenuArrowDirectionUp, NULL);
     //C2DXShareSDK::shareContent(C2DXPlatTypeAny, content, NULL);
     //shareScoreContent(0);
     return true;

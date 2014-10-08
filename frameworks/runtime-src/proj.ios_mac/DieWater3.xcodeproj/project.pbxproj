@@ -49,7 +49,6 @@
 		1083C18B19E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C17319E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.framework */; };
 		1083C18C19E435030035EFDB /* ShareSDKShareActionSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C17419E435030035EFDB /* ShareSDKShareActionSheet.framework */; };
 		1083C1A419E435D70035EFDB /* C2DXShareSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1083C19919E435D70035EFDB /* C2DXShareSDK.cpp */; };
-		1083C1A519E435D70035EFDB /* C2DXShareSDKIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1083C19C19E435D70035EFDB /* C2DXShareSDKIOS.mm */; };
 		1083C1A619E435D70035EFDB /* C2DXiOSShareSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1083C1A019E435D70035EFDB /* C2DXiOSShareSDK.mm */; };
 		10A034EA19DD06ED00266A78 /* GChelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 10A034E919DD06ED00266A78 /* GChelper.mm */; };
 		10A034EC19DD071500266A78 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A034EB19DD071500266A78 /* GameKit.framework */; };
@@ -400,11 +399,8 @@
 		1083C17219E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKiPhoneSimpleShareViewUI.bundle; sourceTree = "<group>"; };
 		1083C17319E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKiPhoneSimpleShareViewUI.framework; sourceTree = "<group>"; };
 		1083C17419E435030035EFDB /* ShareSDKShareActionSheet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKShareActionSheet.framework; sourceTree = "<group>"; };
-		1083C19819E435D70035EFDB /* C2DXShareSDK-Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "C2DXShareSDK-Interface.h"; sourceTree = "<group>"; };
 		1083C19919E435D70035EFDB /* C2DXShareSDK.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = C2DXShareSDK.cpp; sourceTree = "<group>"; };
 		1083C19A19E435D70035EFDB /* C2DXShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXShareSDK.h; sourceTree = "<group>"; };
-		1083C19B19E435D70035EFDB /* C2DXShareSDKIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXShareSDKIOS.h; sourceTree = "<group>"; };
-		1083C19C19E435D70035EFDB /* C2DXShareSDKIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = C2DXShareSDKIOS.mm; sourceTree = "<group>"; };
 		1083C19D19E435D70035EFDB /* C2DXShareSDKTypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXShareSDKTypeDef.h; sourceTree = "<group>"; };
 		1083C19F19E435D70035EFDB /* C2DXiOSShareSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C2DXiOSShareSDK.h; sourceTree = "<group>"; };
 		1083C1A019E435D70035EFDB /* C2DXiOSShareSDK.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = C2DXiOSShareSDK.mm; sourceTree = "<group>"; };
@@ -733,11 +729,8 @@
 		1083C18D19E435D70035EFDB /* C2DXShareSDK */ = {
 			isa = PBXGroup;
 			children = (
-				1083C19819E435D70035EFDB /* C2DXShareSDK-Interface.h */,
 				1083C19919E435D70035EFDB /* C2DXShareSDK.cpp */,
 				1083C19A19E435D70035EFDB /* C2DXShareSDK.h */,
-				1083C19B19E435D70035EFDB /* C2DXShareSDKIOS.h */,
-				1083C19C19E435D70035EFDB /* C2DXShareSDKIOS.mm */,
 				1083C19D19E435D70035EFDB /* C2DXShareSDKTypeDef.h */,
 				1083C19E19E435D70035EFDB /* ios */,
 			);
@@ -1367,7 +1360,6 @@
 				C00FD4BC1938628E00C6382D /* Shine_png.cpp in Sources */,
 				1083C1A419E435D70035EFDB /* C2DXShareSDK.cpp in Sources */,
 				10A034EA19DD06ED00266A78 /* GChelper.mm in Sources */,
-				1083C1A519E435D70035EFDB /* C2DXShareSDKIOS.mm in Sources */,
 				3E12D1EB1957FB18002FF0FD /* wire_format_lite.cc in Sources */,
 				3E12D1D51957FB18002FF0FD /* extension_set.cc in Sources */,
 				509D4AC817EBB2AB00697056 /* main.m in Sources */,
@@ -1596,7 +1588,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../Classes/protobuf-lite";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/ios",
 					"$(PROJECT_DIR)",
@@ -1644,7 +1636,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../Classes/protobuf-lite";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/ios",
 					"$(PROJECT_DIR)",

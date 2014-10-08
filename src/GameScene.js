@@ -29,13 +29,6 @@ GameLayer = cc.Layer.extend({
 
         var size = cc.director.getWinSize();
 
-        var title = new cc.LabelTTF("Disapper Water", "Arial", 72);
-        // position the label on the center of the screen
-        title.x = size.width / 2;
-        title.y = size.height - 40;
-        title.setFontFillColor(cc.color(119, 110, 101));
-        this.addChild(title);
-
         var iconWidth = FrameBroder.DefaultWidth;
         var iconHeight = FrameBroder.DefaultHeight;
         var w = (size.width /2 ) - iconWidth * (this._verticalCount -1)/2;
@@ -91,6 +84,14 @@ GameLayer = cc.Layer.extend({
         this._bestScoreLable.setAnchorPoint(cc.p(0,0.5));
         this.addChild(this._bestScoreLable);
         this._bestScoreLable.setFontFillColor(cc.color(187, 173, 160));
+
+        var title = new cc.LabelTTF("Disapper Water", "Arial", 72);
+        // position the label on the center of the screen
+        title.x = size.width / 2;
+        title.y = this._bestScoreLable.y+70;
+        title.setFontFillColor(cc.color(119, 110, 101));
+        this.addChild(title);
+
         this.updateLabel();
         this.addMenu();
 
@@ -118,7 +119,7 @@ GameLayer = cc.Layer.extend({
     },
     addMenu:function(){
         var y = this._bestScoreLable.y;
-        var beginx = this._bestScoreLable.x+this._bestScoreLable.width+20;
+        var beginx = this._bestScoreLable.x+180;
         var size = cc.director.getWinSize();
         var restartItem = new cc.MenuItemImage(
             res.MENUITEM_PNG.RESTART_S_PNG,
@@ -426,6 +427,8 @@ GameLayer = cc.Layer.extend({
                 }
             }
         }
+        cc.audioEngine.playEffect(res.Effect_MP3,false);
+        //cc.audioEngine.playMusic(res.Effect_MP3,false);
         this._score+=Math.pow(dieCount,2);//每获得一个都是其平方倍的分数，例如：1^2 = 1;2^2 = 4;3^2 = 9;
     },
     dieWater: function (beginWater, endWater) {
