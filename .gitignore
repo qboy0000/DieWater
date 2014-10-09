@@ -9,3 +9,4 @@ UserInterfaceState.xcuserstate
 *.o
 xcuserdata
 publish
+frameworks/runtime-src/proj.android
