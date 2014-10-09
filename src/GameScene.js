@@ -95,9 +95,6 @@ GameLayer = cc.Layer.extend({
         this.updateLabel();
         this.addMenu();
 
-        if(jsb_register_addAd){
-            jsb_register_addAd();
-        }
 
         return true;
     },
@@ -139,10 +136,7 @@ GameLayer = cc.Layer.extend({
             res.MENUITEM_PNG.RANKING_PNG,
             res.MENUITEM_PNG.RANKING_PNG,
             function () {
-                //jsb_register_reportScore(100);
-                if(jsb_register_ranking){
-                    jsb_register_ranking();
-                }
+
             }, this);
         ranking.attr({
             x: restartItem.x+120,
@@ -155,10 +149,7 @@ GameLayer = cc.Layer.extend({
             res.MENUITEM_PNG.SHARE_S_PNG,
             res.MENUITEM_PNG.SHARE_S_PNG,
             function () {
-                //jsb_register_reportScore(100);
-                if(jsb_register_shareContent){
-                    jsb_register_shareContent();
-                }
+
             }, this);
         shareItem.attr({
             x: ranking.x+120,
@@ -230,16 +221,10 @@ GameLayer = cc.Layer.extend({
         if(this._score>this._besetScore)
         {
             this._besetScore = this._score;
-            if(jsb_register_reportScore)
-            {
-                jsb_register_reportScore(this._besetScore);
-            }
+
 
             cc.sys.localStorage.setItem("BestScore",this._besetScore);
             this._bestScoreLable.setString("Best:"+this._besetScore);
-        }
-        if(jsb_register_reportMove){
-            jsb_register_reportMove(this._moveCount);
         }
 
     },
@@ -507,6 +492,10 @@ var GameScene = cc.Scene.extend({
 	onEnter:function () {
 		this._super();
         var bgLayer = new cc.LayerColor(res.BG_COLOR);
+        var bg = cc.Sprite.create(res.BG_PNG);
+        bg.setAnchorPoint(cc.p(0,0));//anchorX(0);
+        //bg.anchorY(0);
+        bgLayer.addChild(bg);
         this.addChild(bgLayer, 0);
 		var layer = new GameLayer();
 		this.addChild(layer,1);

@@ -14,7 +14,8 @@ var res = {
             SHARE_S_PNG:"res/shareItem_s.png"//SHARE_SMALL
         },
         BG_COLOR:cc.color(250,248,239),
-        Effect_MP3:"res/select1.wav"
+        Effect_MP3:"res/select1.wav",
+        BG_PNG:'res/bg.png'
 };
 
 var g_resources = [
