@@ -492,6 +492,10 @@ var GameScene = cc.Scene.extend({
 	onEnter:function () {
 		this._super();
         var bgLayer = new cc.LayerColor(res.BG_COLOR);
+        var bg = cc.Sprite.create(res.BG_PNG);
+        bg.setAnchorPoint(cc.p(0,0));//anchorX(0);
+        //bg.anchorY(0);
+        bgLayer.addChild(bg);
         this.addChild(bgLayer, 0);
 		var layer = new GameLayer();
 		this.addChild(layer,1);
