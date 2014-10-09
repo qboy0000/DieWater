@@ -31,8 +31,13 @@
 #import "RootViewController.h"
 #import "CCEAGLView.h"
 #include "ConfigParser.h"
+#import "GAI.h"
+#import <ShareSDK/ShareSDK.h>
+#import "GameCenter_Bridge.h"
 
 @implementation AppController
+
+#define SHARE_SDK_APP_KEY @"3381fa3208e8"
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -42,7 +47,21 @@ static AppDelegate s_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    GameCenter_Bridge::authenticateLocalUserCPP();
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-22990429-3"];
 
+    [ShareSDK registerApp:SHARE_SDK_APP_KEY];
+    
     // Override point for customization after application launch.
     
     ConfigParser::getInstance()->readConfig();
@@ -88,11 +107,11 @@ static AppDelegate s_sharedApplication;
     //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gamecenter:"]];
     return YES;
 }
-//
-//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-//    return [ShareSDK handleOpenURL:url
-//                        wxDelegate:self];
-//}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [ShareSDK handleOpenURL:url
+                        wxDelegate:self];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*
