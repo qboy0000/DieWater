@@ -52,48 +52,51 @@ GameLayer = cc.Layer.extend({
             }
         }
 
-        this._scoreLabel = new cc.LabelTTF("Score:" + this._score);
-        this._scoreLabel.fontSize = 46;
-        this._scoreLabel.attr({
-            x: size.width / 4,
-            y: size.height / 2 + iconHeight * (this._horizontalCount) / 2 - 20
-        });
-        this.addChild(this._scoreLabel);
-        this._scoreLabel.setFontFillColor(cc.color(187, 173, 160));
-
-        this._moveCountLabel = new cc.LabelTTF("Move:" + this._score);
-        this._moveCountLabel.fontSize = 46;
-        this._moveCountLabel.attr({
-            x: size.width * 0.75,
-            y: size.height / 2 + iconHeight * (this._horizontalCount ) / 2 - 20
-        });
-        this.addChild(this._moveCountLabel);
-        this._moveCountLabel.setFontFillColor(cc.color(187, 173, 160));
-
-        this.addWater(5);
+        this.addMenu();
 
         this._besetScore = cc.sys.localStorage.getItem("BestScore");
         this._besetScore = this._besetScore || 0;
         this._bestScoreLable = new cc.LabelTTF("Best:"+ this._besetScore);
 
-        this._bestScoreLable.fontSize = 46;
+        this._bestScoreLable.fontSize = 40;
         this._bestScoreLable.attr({
             x: 30,
-            y: size.height / 2 + iconHeight * (this._horizontalCount) / 2 + 30
+            y: size.height / 2 + iconHeight * (this._horizontalCount) / 2 + 35
         });
         this._bestScoreLable.setAnchorPoint(cc.p(0,0.5));
         this.addChild(this._bestScoreLable);
-        this._bestScoreLable.setFontFillColor(cc.color(187, 173, 160));
+        this._bestScoreLable.setFontFillColor(cc.WHITE);
 
-        var title = new cc.LabelTTF("Disapper Water", "Arial", 72);
+        this._scoreLabel = new cc.LabelTTF("Score:" + this._score);
+        this._scoreLabel.fontSize = 40;
+        this._scoreLabel.attr({
+            x: 320,
+            y: size.height / 2 + iconHeight * (this._horizontalCount) / 2 + 35
+        });
+        this._bestScoreLable.setAnchorPoint(cc.p(0,0.5));
+        this.addChild(this._scoreLabel);
+        this._scoreLabel.setFontFillColor(cc.WHITE);
+
+        this._moveCountLabel = new cc.LabelTTF("Move:" + this._score);
+        this._moveCountLabel.fontSize = 40;
+        this._moveCountLabel.attr({
+            x: 510,
+            y: size.height / 2 + iconHeight * (this._horizontalCount) / 2 + 35
+        });
+        this.addChild(this._moveCountLabel);
+        this._moveCountLabel.setFontFillColor(cc.WHITE);
+
+        this.addWater(5);
+
+        var title = new cc.LabelTTF("Crystal Bump", "Arial", 72);
         // position the label on the center of the screen
         title.x = size.width / 2;
         title.y = this._bestScoreLable.y+70;
-        title.setFontFillColor(cc.color(119, 110, 101));
+        title.setFontFillColor(cc.WHITE);
         this.addChild(title);
 
         this.updateLabel();
-        this.addMenu();
+
 
         if(jsb_register_addAd){
             jsb_register_addAd();
@@ -118,9 +121,9 @@ GameLayer = cc.Layer.extend({
         this.updateLabel();
     },
     addMenu:function(){
-        var y = this._bestScoreLable.y;
-        var beginx = this._bestScoreLable.x+180;
         var size = cc.director.getWinSize();
+        var y = size.height / 2 + FrameBroder.DefaultHeight * (this._horizontalCount) / 2 - 20;
+        var beginx = 10;
         var restartItem = new cc.MenuItemImage(
             res.MENUITEM_PNG.RESTART_S_PNG,
             res.MENUITEM_PNG.RESTART_S_PNG,
@@ -145,7 +148,7 @@ GameLayer = cc.Layer.extend({
                 }
             }, this);
         ranking.attr({
-            x: restartItem.x+120,
+            x: restartItem.x+202,
             y: y,
             anchorX: 0,
             anchorY: 0.5
@@ -157,11 +160,11 @@ GameLayer = cc.Layer.extend({
             function () {
                 //jsb_register_reportScore(100);
                 if(jsb_register_shareContent){
-                    jsb_register_shareContent();
+                    jsb_register_shareContent(this._score);
                 }
             }, this);
         shareItem.attr({
-            x: ranking.x+120,
+            x: ranking.x+202,
             y: y,
             anchorX: 0,
             anchorY: 0.5

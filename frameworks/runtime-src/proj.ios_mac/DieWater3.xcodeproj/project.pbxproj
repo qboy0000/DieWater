@@ -43,7 +43,6 @@
 		1083C18419E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C16C19E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.framework */; };
 		1083C18519E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1083C16D19E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.bundle */; };
 		1083C18619E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C16E19E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.framework */; };
-		1083C18719E435030035EFDB /* ShareSDKiPhoneAppRecommendShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C16F19E435030035EFDB /* ShareSDKiPhoneAppRecommendShareViewUI.framework */; };
 		1083C18819E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1083C17019E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.bundle */; };
 		1083C18919E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C17119E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.framework */; };
 		1083C18A19E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1083C17219E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.bundle */; };
@@ -395,7 +394,6 @@
 		1083C16C19E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKiPadDefaultShareViewUI.framework; sourceTree = "<group>"; };
 		1083C16D19E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKiPadSimpleShareViewUI.bundle; sourceTree = "<group>"; };
 		1083C16E19E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKiPadSimpleShareViewUI.framework; sourceTree = "<group>"; };
-		1083C16F19E435030035EFDB /* ShareSDKiPhoneAppRecommendShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKiPhoneAppRecommendShareViewUI.framework; sourceTree = "<group>"; };
 		1083C17019E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKiPhoneDefaultShareViewUI.bundle; sourceTree = "<group>"; };
 		1083C17119E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKiPhoneDefaultShareViewUI.framework; sourceTree = "<group>"; };
 		1083C17219E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKiPhoneSimpleShareViewUI.bundle; sourceTree = "<group>"; };
@@ -597,7 +595,6 @@
 				A922754E1517C094001B78AA /* Foundation.framework in Frameworks */,
 				1083C17619E435030035EFDB /* SinaWeiboConnection.framework in Frameworks */,
 				1083C17719E435030035EFDB /* TwitterConnection.framework in Frameworks */,
-				1083C18719E435030035EFDB /* ShareSDKiPhoneAppRecommendShareViewUI.framework in Frameworks */,
 				A92275501517C094001B78AA /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,7 +715,6 @@
 				1083C16C19E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.framework */,
 				1083C16D19E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.bundle */,
 				1083C16E19E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.framework */,
-				1083C16F19E435030035EFDB /* ShareSDKiPhoneAppRecommendShareViewUI.framework */,
 				1083C17019E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.bundle */,
 				1083C17119E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.framework */,
 				1083C17219E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.bundle */,
@@ -1603,13 +1599,13 @@
 					"$(PROJECT_DIR)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/ShareSDK/Extend/YiXinSDK",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../js-bindings/cocos2d-x/cocos $(SRCROOT)/../../js-bindings/cocos2d-x/cocos/platform/ios $(SRCROOT)/../../js-bindings/external/spidermonkey/include/ios $(SRCROOT)/../../js-bindings/cocos2d-x/plugin/jsbindings/auto $(SRCROOT)/../../js-bindings/cocos2d-x/plugin/jsbindings/manual";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -1659,7 +1655,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../js-bindings/cocos2d-x/cocos $(SRCROOT)/../../js-bindings/cocos2d-x/cocos/platform/ios $(SRCROOT)/../../js-bindings/external/spidermonkey/include/ios $(SRCROOT)/../../js-bindings/cocos2d-x/plugin/jsbindings/auto $(SRCROOT)/../../js-bindings/cocos2d-x/plugin/jsbindings/manual";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};

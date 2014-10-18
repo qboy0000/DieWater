@@ -6,6 +6,7 @@
 //require("./ShareSDKHelper.js");
 
 GameOver = cc.LayerColor.extend({
+    _score:null,
     ctor:function(){
         this._super();
         var bgcolor = cc.color(res.BG_COLOR.r,res.BG_COLOR.g,res.BG_COLOR.b,200);
@@ -17,6 +18,7 @@ GameOver = cc.LayerColor.extend({
     {
         score = score || 0;
         move = move || 0;
+        this._score = score;
         var size = cc.director.getWinSize();
 
         var gameover = new cc.LabelTTF("Game Over!", "Arial", 94);
@@ -84,7 +86,7 @@ GameOver = cc.LayerColor.extend({
             res.MENUITEM_PNG.SHARE_PNG,
             function () {
                 cc.log("Share Menu is clicked!");
-                jsb_register_shareContent();
+                jsb_register_shareContent(this._score);
             }, this);
         shareItem.attr({
             x: size.width >> 1,

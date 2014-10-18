@@ -8,16 +8,28 @@
 
 #include "ShareSDK_JSB.h"
 #include "C2DXShareSDK.h"
+#include "jsapi.h"
+#include "js_manual_conversions.h"
 
 using namespace cn::sharesdk;
 
 bool jsb_register_shareContent(JSContext* cx,uint32_t argc,JS::Value* vp)
 {
+    int score = 0;
+    if (argc>0) {
+        JSString* str;
+        JS_ConvertArguments(cx, argc, JS_ARGV(cx, vp), "S",&str);
+        if (str) {
+            JSStringWrapper wrapper(str);
+            score = atoi( wrapper.get());
+        }
+        
+    }
     __Dictionary* content = __Dictionary::create();
-    content -> setObject(CCString::create("本年度最好玩的游戏，没有之一"), "content");
-    content -> setObject(CCString::create("https://mmbiz.qlogo.cn/mmbiz/qIjJhS2CeqMLpNP0GURL8KciaeDwVEdZAHGDicicBicHwbchSaRzs1VZWlmAOduCGgDt76D2LdOEtqoonCicCP3cicgg/0"), "image");
-    content -> setObject(CCString::create("消失的水滴"), "title");
-    content -> setObject(CCString::create("消失的水滴"), "description");
+    content -> setObject(CCString::createWithFormat("nice！ I got %d score,what about you?",score), "content");
+    content -> setObject(CCString::create("https://open.weixin.qq.com/cgi-bin/openproxy?url=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz%2FqIjJhS2CeqMoLNyibwVgPDI7LXr2QPSWZdXIiaozqPnFVUKHJ64Izia0hrZqeZTl3Wr6TOD2iaUMruYSd2CvpEsdCg%2F0"), "image");
+    content -> setObject(CCString::create("Crystal Bump"), "title");
+    content -> setObject(CCString::create("Crystal Bump"), "description");
     content -> setObject(CCString::create("http://www.shunchengfeng.com"), "url");
     content -> setObject(CCString::createWithFormat("%d", C2DXContentTypeNews), "type");
     
