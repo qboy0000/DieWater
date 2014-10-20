@@ -88,12 +88,19 @@ GameLayer = cc.Layer.extend({
 
         this.addWater(5);
 
-        var title = new cc.LabelTTF("Crystal Bump", "Arial", 72);
-        // position the label on the center of the screen
-        title.x = size.width / 2;
-        title.y = this._bestScoreLable.y+70;
-        title.setFontFillColor(cc.WHITE);
-        this.addChild(title);
+//        var title = new cc.LabelTTF("Crystal Bump", "Arial", 72);
+//        // position the label on the center of the screen
+//        title.x = size.width / 2;
+//        title.y = this._bestScoreLable.y+70;
+//        title.setFontFillColor(cc.WHITE);
+//        this.addChild(title);
+
+        var sptitle = cc.Sprite.create(res.TITLE_PNG);
+        sptitle.attr({
+            x:size.width / 2,
+            y:this._bestScoreLable.y+70
+        })
+        this.addChild(sptitle);
 
         this.updateLabel();
 
@@ -123,7 +130,7 @@ GameLayer = cc.Layer.extend({
     addMenu:function(){
         var size = cc.director.getWinSize();
         var y = size.height / 2 + FrameBroder.DefaultHeight * (this._horizontalCount) / 2 - 20;
-        var beginx = 10;
+        var beginx = 30;
         var restartItem = new cc.MenuItemImage(
             res.MENUITEM_PNG.RESTART_S_PNG,
             res.MENUITEM_PNG.RESTART_S_PNG,
@@ -233,13 +240,13 @@ GameLayer = cc.Layer.extend({
         if(this._score>this._besetScore)
         {
             this._besetScore = this._score;
-            if(jsb_register_reportScore)
-            {
-                jsb_register_reportScore(this._besetScore);
-            }
+
 
             cc.sys.localStorage.setItem("BestScore",this._besetScore);
             this._bestScoreLable.setString("Best:"+this._besetScore);
+        }
+        if(jsb_register_reportScore){
+            jsb_register_reportScore(this._besetScore);
         }
         if(jsb_register_reportMove){
             jsb_register_reportMove(this._moveCount);
@@ -459,7 +466,18 @@ GameLayer = cc.Layer.extend({
             if (whileIndex == 50) {
                 cc.log("Game Over");
             } else {
-                var waterdrip = WaterDrip.createRand();
+                var waterIndex;
+
+                if(this._score<50){
+                    waterIndex = Math.round(Math.random() * (WaterType.MINTYPE-1));
+                }else if (this._score<100)
+                {
+                    waterIndex = Math.round(Math.random() * (WaterType.CENTERTYPE-1));
+                }else{
+                    waterIndex = Math.round(Math.random() * (WaterType.MAXType-1));
+                }
+
+                var waterdrip = WaterDrip.createWithIndex(waterIndex);
                 cc.log("i = " + i + "   j = " + j);
 
                 var p = this._waterFramer[i][j].getPosition();

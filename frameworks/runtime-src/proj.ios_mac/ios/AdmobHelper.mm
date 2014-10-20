@@ -12,7 +12,7 @@
 #import "GADRequest.h"
 #import "AppController.h"
 
-#define kSampleAdUnitID @"ca-app-pub-3695369066607397/7995589665"
+#define kSampleAdUnitID @"ca-app-pub-3695369066607397/1102301268"
 
 static AdmobHelper* s_AdmobHelper;
 

@@ -10,8 +10,8 @@
 #define Flip_GameCenterHelper_Interface_h
 
 
-#define LeaderBorder_Score_ID "com.shunchengfeng.game.diewater.score"
-#define LeaderBorder_Move_ID "com.shunchengfeng.game.diewater.move"
+#define LeaderBorder_Score_ID "com.shunchengfeng.game.kissdonuts.score"
+#define LeaderBorder_Move_ID "com.shunchengfeng.game.kissdonuts.move"
 //认证用户
 void authenticateLocalUserI();
 

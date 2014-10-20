@@ -5,17 +5,9 @@
  */
 
 WaterType = {
-            BLACK:0,//黑
-            BLUE:1,//蓝
-            CYAN:2,//青
-            GRAY:3,//灰
-            GREEN:4,//绿
-            ORANGE:5,//橙
-            PINK:6,//粉
-            PURPLE:7,//紫
-            RED:8,//红
-            YELLOW:9,//黄色
-            MAXType:10
+            MINTYPE:8,
+            CENTERTYPE:10,
+            MAXType:12
       };
 
 WaterDrip = cc.Sprite.extend({
@@ -34,7 +26,7 @@ WaterDrip = cc.Sprite.extend({
 });
 
 WaterDrip.createWithIndex = function(index){
-    index = index%WaterType.MAXType;
+    //index = index%WaterType.MAXType;
     cc.log("WaterType:"+index);
 	var fb = new WaterDrip(g_water_res[index]);
     fb._waterType = index;

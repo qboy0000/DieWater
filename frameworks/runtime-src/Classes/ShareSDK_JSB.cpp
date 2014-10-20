@@ -27,7 +27,7 @@ bool jsb_register_shareContent(JSContext* cx,uint32_t argc,JS::Value* vp)
     }
     __Dictionary* content = __Dictionary::create();
     content -> setObject(CCString::createWithFormat("nice！ I got %d score,what about you?",score), "content");
-    content -> setObject(CCString::create("https://open.weixin.qq.com/cgi-bin/openproxy?url=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz%2FqIjJhS2CeqMoLNyibwVgPDI7LXr2QPSWZdXIiaozqPnFVUKHJ64Izia0hrZqeZTl3Wr6TOD2iaUMruYSd2CvpEsdCg%2F0"), "image");
+    content -> setObject(CCString::create("http://ww2.sinaimg.cn/large/84034e23gw1elgmnj7hjej203c03cq2x.jpg"), "image");
     content -> setObject(CCString::create("Crystal Bump"), "title");
     content -> setObject(CCString::create("Crystal Bump"), "description");
     content -> setObject(CCString::create("http://www.shunchengfeng.com"), "url");

@@ -37,7 +37,7 @@
 
 @implementation AppController
 
-#define SHARE_SDK_APP_KEY @"3381fa3208e8"
+#define SHARE_SDK_APP_KEY @"3e10ac99ef2c"
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -58,7 +58,7 @@ static AppDelegate s_sharedApplication;
     [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     
     // Initialize tracker. Replace with your tracking ID.
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-22990429-3"];
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-22990429-4"];
 
     [ShareSDK registerApp:SHARE_SDK_APP_KEY];
     

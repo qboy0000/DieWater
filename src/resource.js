@@ -15,7 +15,9 @@ var res = {
         },
         BG_COLOR:cc.color(250,248,239),
         Effect_MP3:"res/select.mp3",
-        BG_PNG:'res/bg.png'
+        BG_PNG:'res/bg.png',
+        TITLE_PNG:'res/title.png',
+        GameOver:'res/gameover.png',
 };
 
 var g_resources = [
@@ -36,15 +38,8 @@ var g_resources = [
 
                    ];
 
-var g_water_res = [
-                    "res/Image/water_1.png",
-    "res/Image/water_2.png",
-    "res/Image/water_3.png",
-    "res/Image/water_4.png",
-    "res/Image/water_5.png",
-    "res/Image/water_6.png",
-    "res/Image/water_7.png",
-    "res/Image/water_8.png",
-    "res/Image/water_9.png",
-    "res/Image/water_10.png"
-                   ];
+var g_water_res = [];
+for(i = 1;i<=12;i++){
+    var temp = "res/Image/ttq_"+i+".png";
+    g_water_res.push(temp);
+}

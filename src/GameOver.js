@@ -21,12 +21,24 @@ GameOver = cc.LayerColor.extend({
         this._score = score;
         var size = cc.director.getWinSize();
 
-        var gameover = new cc.LabelTTF("Game Over!", "Arial", 94);
-        // position the label on the center of the screen
-        gameover.x = size.width / 2;
-        gameover.y = size.height - 80;
-        gameover.setFontFillColor(cc.color(119,110,101));
-        // add the label as a child to this layer
+//        var gameover = new cc.LabelTTF("Game Over!", "Arial", 94);
+//        // position the label on the center of the screen
+//        gameover.x = size.width / 2;
+//        gameover.y = size.height - 80;
+//        gameover.setFontFillColor(cc.color(119,110,101));
+//        // add the label as a child to this layer
+//        this.addChild(gameover, 5);
+
+        var gameover = cc.Sprite.create(res.GameOver);
+        gameover.attr({
+            x:size.width/2,
+            y:size.height/2 + 350
+        });
+//        // position the label on the center of the screen
+//        gameover.x = size.width / 2;
+//        gameover.y = size.height - 80;
+//        gameover.setFontFillColor(cc.color(119,110,101));
+//        // add the label as a child to this layer
         this.addChild(gameover, 5);
 
         var bestScore = cc.sys.localStorage.getItem("BestScore");
