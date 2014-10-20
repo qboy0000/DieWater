@@ -25,35 +25,72 @@ GameOver = cc.LayerColor.extend({
         // position the label on the center of the screen
         gameover.x = size.width / 2;
         gameover.y = size.height - 80;
-        gameover.setFontFillColor(cc.color(119,110,101));
+        gameover.setFontFillColor(cc.WHITE);
         // add the label as a child to this layer
         this.addChild(gameover, 5);
 
+//        var bestScore = cc.sys.localStorage.getItem("BestScore");
+//
+//        var bestScoreLabel = new cc.LabelTTF("Best Score:"+bestScore, "Arial", 60);
+//        // position the label on the center of the screen
+//        bestScoreLabel.x = size.width / 2;
+//        bestScoreLabel.y = size.height/2+270;
+//        bestScoreLabel.setFontFillColor(cc.color(219,110,101));
+//        // add the label as a child to this layer
+//        this.addChild(bestScoreLabel, 5);
+//
+//        var scoreLabel = new cc.LabelTTF("Your Score:"+score, "Arial", 60);
+//        // position the label on the center of the screen
+//        scoreLabel.x = size.width / 2;
+//        scoreLabel.y = size.height/2+200;
+//        scoreLabel.setFontFillColor(cc.color(119,110,101));
+//        // add the label as a child to this layer
+//        this.addChild(scoreLabel, 5);
+//
+//        var moveLabel = new cc.LabelTTF("Your Move:"+move, "Arial", 60);
+//        // position the label on the center of the screen
+//        moveLabel.x = size.width / 2;
+//        moveLabel.y = size.height/2 + 130;
+//        moveLabel.setFontFillColor(cc.color(119,110,101));
+//        // add the label as a child to this layer
+//        this.addChild(moveLabel, 5);
+        var iconHeight = 110;
+
         var bestScore = cc.sys.localStorage.getItem("BestScore");
+        bestScore = bestScore || 0;
+        var bestScoreLable = new cc.LabelTTF("Best:"+ bestScore);
 
-        var bestScoreLabel = new cc.LabelTTF("Best Score:"+bestScore, "Arial", 60);
-        // position the label on the center of the screen
-        bestScoreLabel.x = size.width / 2;
-        bestScoreLabel.y = size.height/2+270;
-        bestScoreLabel.setFontFillColor(cc.color(219,110,101));
-        // add the label as a child to this layer
-        this.addChild(bestScoreLabel, 5);
+        var ih = size.height / 2 + iconHeight * 5 / 2 + 35;
 
-        var scoreLabel = new cc.LabelTTF("Your Score:"+score, "Arial", 60);
-        // position the label on the center of the screen
-        scoreLabel.x = size.width / 2;
-        scoreLabel.y = size.height/2+200;
-        scoreLabel.setFontFillColor(cc.color(119,110,101));
-        // add the label as a child to this layer
-        this.addChild(scoreLabel, 5);
+        bestScoreLable.fontSize = 40;
+        bestScoreLable.attr({
+            x: 30,
+            y: ih
+        });
+        bestScoreLable.setAnchorPoint(cc.p(0,0.5));
+        this.addChild(bestScoreLable,5);
+        bestScoreLable.setFontFillColor(cc.WHITE);
 
-        var moveLabel = new cc.LabelTTF("Your Move:"+move, "Arial", 60);
-        // position the label on the center of the screen
-        moveLabel.x = size.width / 2;
-        moveLabel.y = size.height/2 + 130;
-        moveLabel.setFontFillColor(cc.color(119,110,101));
-        // add the label as a child to this layer
-        this.addChild(moveLabel, 5);
+        var _scoreLabel = new cc.LabelTTF("Score:" + score);
+        _scoreLabel.fontSize = 40;
+        _scoreLabel.attr({
+            x: 220,
+            y: ih
+        });
+        _scoreLabel.setAnchorPoint(cc.p(0,0.5));
+        this.addChild(_scoreLabel,5);
+        _scoreLabel.setFontFillColor(cc.WHITE);
+
+        var _moveCountLabel = new cc.LabelTTF("Move:" + move);
+        _moveCountLabel.fontSize = 40;
+        _moveCountLabel.attr({
+            x: 410,
+            y: ih
+        });
+        this.addChild(_moveCountLabel,5);
+        _moveCountLabel.setAnchorPoint(cc.p(0,0.5));
+        _moveCountLabel.setFontFillColor(cc.WHITE);
+
     },
     onEnter:function()
     {
@@ -106,5 +143,9 @@ GameOver.createWithScoreAndMove = function(score,move)
 {
     var go = new GameOver();
     go.initLayer(score,move);
+    var bgLayer = new cc.LayerColor(res.BG_COLOR);
+    var bg = cc.Sprite.create(res.BG_PNG);
+    bg.setAnchorPoint(cc.p(0,0));
+    go.addChild(bg);
     return go;
 }
