@@ -38,7 +38,7 @@ ShareSDKHelper.auth = function()
 
 }
 
-ShareSDKHelper.share = function(callback)
+ShareSDKHelper.share = function(score,callback)
 {
 
     //ShareSDK.shareContent()

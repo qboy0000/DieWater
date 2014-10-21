@@ -1,6 +1,7 @@
 
 //require("src/FrameBroder.js");
 
+cc.WHITE = cc.color(255,255,255);
 
 GameLayer = cc.Layer.extend({
     _horizontalCount: 5,//横向
@@ -104,10 +105,10 @@ GameLayer = cc.Layer.extend({
 
         this.updateLabel();
 
-
-        if(jsb_register_addAd){
-            jsb_register_addAd();
-        }
+//
+//        if(jsb_register_addAd){
+//            jsb_register_addAd();
+//        }
 
         return true;
     },
@@ -166,9 +167,7 @@ GameLayer = cc.Layer.extend({
             res.MENUITEM_PNG.SHARE_S_PNG,
             function () {
                 //jsb_register_reportScore(100);
-                if(jsb_register_shareContent){
-                    jsb_register_shareContent(this._score);
-                }
+                ShareSDKHelper.share(this._besetScore);
             }, this);
         shareItem.attr({
             x: ranking.x+202,
@@ -245,12 +244,12 @@ GameLayer = cc.Layer.extend({
             cc.sys.localStorage.setItem("BestScore",this._besetScore);
             this._bestScoreLable.setString("Best:"+this._besetScore);
         }
-        if(jsb_register_reportScore){
-            jsb_register_reportScore(this._besetScore);
-        }
-        if(jsb_register_reportMove){
-            jsb_register_reportMove(this._moveCount);
-        }
+//        if(jsb_register_reportScore){
+//            jsb_register_reportScore(this._besetScore);
+//        }
+//        if(jsb_register_reportMove){
+//            jsb_register_reportMove(this._moveCount);
+//        }
 
     },
     moveWater: function (endPoint, isX) {
