@@ -19,7 +19,7 @@ bool jsb_register_shareContent(JSContext* cx,uint32_t argc,JS::Value* vp)
     if (argc>0) {
         JSString* str;
         JS_ConvertArguments(cx, argc, JS_ARGV(cx, vp), "S",&str);
-        if (str) {
+        if  (str) {
             JSStringWrapper wrapper(str);
             score = atoi( wrapper.get());
         }
@@ -30,7 +30,7 @@ bool jsb_register_shareContent(JSContext* cx,uint32_t argc,JS::Value* vp)
     content -> setObject(CCString::create("https://open.weixin.qq.com/cgi-bin/openproxy?url=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz%2FqIjJhS2CeqMoLNyibwVgPDI7LXr2QPSWZdXIiaozqPnFVUKHJ64Izia0hrZqeZTl3Wr6TOD2iaUMruYSd2CvpEsdCg%2F0"), "image");
     content -> setObject(CCString::create("Crystal Bump"), "title");
     content -> setObject(CCString::create("Crystal Bump"), "description");
-    content -> setObject(CCString::create("http://www.shunchengfeng.com"), "url");
+    content -> setObject(CCString::create("http://game.shunchengfeng.com/crystalbump"), "url");
     content -> setObject(CCString::createWithFormat("%d", C2DXContentTypeNews), "type");
     
     //C2DXShareSDK::s
