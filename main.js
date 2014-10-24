@@ -49,7 +49,7 @@
 
 cc.game.onStart = function(){
     ShareSDKHelper.init();
-
+    cc.audioEngine.setMusicVolume(0.5)
     //ShareSDKHelper.init();
     cc.view.adjustViewPort(true);
     cc.view.setDesignResolutionSize(640, 1136, cc.ResolutionPolicy.FIXED_WIDTH);
