@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>消失的水滴</title>
+    <title>KissDonuts</title>
     <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="full-screen" content="no"/>
@@ -22,5 +22,90 @@
 <canvas id="gameCanvas" width="640" height="1136"></canvas>
 <script src="frameworks/cocos2d-html5/CCBoot.js"></script>
 <script src="main.js"></script>
+<script src="src/WeixinApi/WeixinApi.js"></script>
+<script language="javascript" type="text/javascript">
+
+    // 开启Api的debug模式
+    //WeixinApi.enableDebugMode();
+    var href = window.location.href, base = href,
+            lastpt = href.lastIndexOf("."),
+            last = href.lastIndexOf("/");
+    if (last != -1 && lastpt > last)
+        base = base.substr(0, last);
+    //alert(base);
+    // 开启Api的debug模式
+    //WeixinApi.enableDebugMode();
+    window.wxData = {
+        "appId": "wx86057106c69dd3c1", // 服务号可以填写appId
+        "imgUrl" : base+'res/Icon.png',
+        "link" : 'http://game.shunchengfeng.com/kissdonuts',
+        "desc" : '好玩甜甜圈游戏哦。快来看看吧。',
+        "title" : "KissDonuts"
+    };
+    // 需要分享的内容，请放到ready里
+    WeixinApi.ready(function(Api) {
+
+//        // 微信分享的数据
+//        var wxData = {
+//            "appId": "wx86057106c69dd3c1", // 服务号可以填写appId
+//            "imgUrl" : 'res/Icon.png',
+//            "link" : 'http://game.shunchengfeng.com/kissdonuts',
+//            "desc" : '大家好，我是Alien，Web前端&Android客户端码农，喜欢技术上的瞎倒腾！欢迎多交流',
+//            "title" : "KissDonuts"
+//        };
+
+        // 分享的回调
+        var wxCallbacks = {
+            // 分享操作开始之前
+            ready : function() {
+                // 你可以在这里对分享的数据进行重组
+                //alert("准备分享");
+            },
+            // 分享被用户自动取消
+            cancel : function(resp) {
+                // 你可以在你的页面上给用户一个小Tip，为什么要取消呢？
+                //alert("分享被取消，msg=" + resp.err_msg);
+            },
+            // 分享失败了
+            fail : function(resp) {
+                // 分享失败了，是不是可以告诉用户：不要紧，可能是网络问题，一会儿再试试？
+                //alert("分享失败，msg=" + resp.err_msg);
+            },
+            // 分享成功
+            confirm : function(resp) {
+                // 分享成功了，我们是不是可以做一些分享统计呢？
+                //alert("分享成功，msg=" + resp.err_msg);
+            },
+            // 整个分享过程结束
+            all : function(resp,shareTo) {
+                // 如果你做的是一个鼓励用户进行分享的产品，在这里是不是可以给用户一些反馈了？
+                //alert("分享" + (shareTo ? "到" + shareTo : "") + "结束，msg=" + resp.err_msg);
+            }
+        };
+
+        // 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
+        Api.shareToFriend(wxData, wxCallbacks);
+
+        // 点击分享到朋友圈，会执行下面这个代码
+        Api.shareToTimeline(wxData, wxCallbacks);
+
+        // 点击分享到腾讯微博，会执行下面这个代码
+        Api.shareToWeibo(wxData, wxCallbacks);
+
+        // iOS上，可以直接调用这个API进行分享，一句话搞定
+        Api.generalShare(wxData,wxCallbacks);
+
+        // 有可能用户是直接用微信“扫一扫”打开的，这个情况下，optionMenu、toolbar都是off状态
+        // 为了方便用户测试，我先来trigger show一下
+        // optionMenu
+        var elOptionMenu = document.getElementById('optionMenu');
+        elOptionMenu.click(); // 先隐藏
+        elOptionMenu.click(); // 再显示
+        // toolbar
+        var elToolbar = document.getElementById('toolbar');
+        elToolbar.click(); // 先隐藏
+        elToolbar.click(); // 再显示
+    });
+</script>
 </body>
 </html>

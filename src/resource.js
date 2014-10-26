@@ -18,6 +18,8 @@ var res = {
         BG_PNG:'res/bg.png',
         TITLE_PNG:'res/title.png',
         GameOver:'res/gameover.png',
+        AllowPNG:'res/arrow.png',
+        IconPNG:'res/Icon.png'
 };
 
 var g_resources = [

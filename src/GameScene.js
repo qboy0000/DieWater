@@ -146,21 +146,21 @@ GameLayer = cc.Layer.extend({
             anchorY: 0.5
         });
 
-        var ranking = new cc.MenuItemImage(
-            res.MENUITEM_PNG.RANKING_PNG,
-            res.MENUITEM_PNG.RANKING_PNG,
-            function () {
-                //jsb_register_reportScore(100);
-                if(jsb_register_ranking){
-                    jsb_register_ranking();
-                }
-            }, this);
-        ranking.attr({
-            x: restartItem.x+202,
-            y: y,
-            anchorX: 0,
-            anchorY: 0.5
-        });
+//        var ranking = new cc.MenuItemImage(
+//            res.MENUITEM_PNG.RANKING_PNG,
+//            res.MENUITEM_PNG.RANKING_PNG,
+//            function () {
+//                //jsb_register_reportScore(100);
+//                if(jsb_register_ranking){
+//                    jsb_register_ranking();
+//                }
+//            }, this);
+//        ranking.attr({
+//            x: restartItem.x+202,
+//            y: y,
+//            anchorX: 0,
+//            anchorY: 0.5
+//        });
 
         var shareItem = new cc.MenuItemImage(
             res.MENUITEM_PNG.SHARE_S_PNG,
@@ -170,13 +170,13 @@ GameLayer = cc.Layer.extend({
                 ShareSDKHelper.share(this._besetScore);
             }, this);
         shareItem.attr({
-            x: ranking.x+202,
+            x: restartItem.x+202*2,
             y: y,
             anchorX: 0,
             anchorY: 0.5
         });
 
-        var menu = new cc.Menu([restartItem,ranking,shareItem]);
+        var menu = new cc.Menu([restartItem,shareItem]);
         menu.x = 0;
         menu.y = 0;
         this.addChild(menu, 1);

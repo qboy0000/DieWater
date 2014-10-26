@@ -51,9 +51,12 @@ cc.game.onStart = function(){
     ShareSDKHelper.init();
 
     //ShareSDKHelper.init();
-    cc.view.adjustViewPort(true);
-    cc.view.setDesignResolutionSize(640, 1136, cc.ResolutionPolicy.SHOW_ALL);
-    cc.view.resizeWithBrowserSize(true);
+    var winHeight = 1136;
+    //if (window.innerHeight)
+    //winHeight = document.documentElement.clientHeight;
+    //cc.view.adjustViewPort(true);
+    cc.view.setDesignResolutionSize(640, winHeight, cc.ResolutionPolicy.SHOW_ALL);
+    //cc.view.resizeWithBrowserSize(true);
     //jsb.reflection.callStaticMethod
     //load resources
     cc.LoaderScene.preload(g_resources, function () {
