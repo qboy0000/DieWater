@@ -29,13 +29,22 @@ LOCAL_SRC_FILES := \
 ../../Classes/VisibleRect.cpp \
 ../../Classes/AppDelegate.cpp \
 ../../Classes/ConfigParser.cpp \
+../../Classes/ShareSDK_JSB.cpp \
+../../Classes/C2DXShareSDK/Android/ShareSDKUtils.cpp \
+../../Classes/C2DXShareSDK/C2DXShareSDK.cpp \
+../../Classes/C2DXShareSDK/Android/JSON/CCJSONConverter.cpp \
+../../Classes/C2DXShareSDK/Android/JSON/cJSON/cJSON.c \
 javascript/Runtime_android.cpp \
 javascript/main.cpp
 
 LOCAL_C_INCLUDES := \
 $(LOCAL_PATH)/../../Classes/runtime \
 $(LOCAL_PATH)/../../Classes/protobuf-lite \
-$(LOCAL_PATH)/../../Classes
+$(LOCAL_PATH)/../../Classes \
+$(LOCAL_PATH)/../../Classes/C2DXShareSDK \
+$(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android \
+$(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON \
+$(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON/cJSON
                     
 
 LOCAL_WHOLE_STATIC_LIBRARIES := cocos_jsb_static

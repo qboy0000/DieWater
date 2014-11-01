@@ -97,8 +97,9 @@ GameOver = cc.LayerColor.extend({
             res.MENUITEM_PNG.SHARE_PNG,
             res.MENUITEM_PNG.SHARE_PNG,
             function () {
+                ShareSDKHelper.share(this._score);
                 cc.log("Share Menu is clicked!");
-                jsb_register_shareContent(this._score);
+                //jsb_register_shareContent(this._score);
             }, this);
         shareItem.attr({
             x: size.width >> 1,

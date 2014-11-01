@@ -59,7 +59,7 @@ void CCJSONConverter::convertJsonToDictionary(cJSON *json, CCDictionary *diction
 
 void CCJSONConverter::convertDictionaryToJson(CCDictionary *dictionary, cJSON *json)
 {
-    CCDictElement * pElement = NULL;
+    DictElement * pElement = NULL;
     CCDICT_FOREACH(dictionary, pElement){
         CCObject * obj = pElement->getObject();
         cJSON * jsonItem = getObjJson(obj);

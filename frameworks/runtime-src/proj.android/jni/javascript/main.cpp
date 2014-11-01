@@ -18,7 +18,24 @@ void cocos_android_app_init (JNIEnv* env, jobject thiz) {
 
 extern "C"
 {
-    bool Java_org_cocos2dx_javascript_AppActivity_nativeIsLandScape(JNIEnv *env, jobject thisz)
+    // bool Java_org_cocos2dx_javascript_AppActivity_nativeIsLandScape(JNIEnv *env, jobject thisz)
+    // {
+    //     if (!ConfigParser::getInstance()->isInit())
+    //     {
+    //         ConfigParser::getInstance()->readConfig();
+    //     }
+    //     return ConfigParser::getInstance()->isLanscape();
+    // }
+
+    // bool Java_org_cocos2dx_javascript_AppActivity_nativeIsDebug(JNIEnv *env, jobject thisz)
+    // {
+    //     #ifdef NDEBUG 
+    //         return false;
+    //     #else
+    //         return true;    
+    //     #endif
+    // }
+    bool Java_com_shunchengfeng_game_kissdonuts_AppActivity_nativeIsLandScape(JNIEnv *env, jobject thisz)
     {
         if (!ConfigParser::getInstance()->isInit())
         {
@@ -27,7 +44,7 @@ extern "C"
         return ConfigParser::getInstance()->isLanscape();
     }
 
-    bool Java_org_cocos2dx_javascript_AppActivity_nativeIsDebug(JNIEnv *env, jobject thisz)
+    bool Java_com_shunchengfeng_game_kissdonuts_AppActivity_nativeIsDebug(JNIEnv *env, jobject thisz)
     {
         #ifdef NDEBUG 
             return false;

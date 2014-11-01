@@ -24,10 +24,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
-package org.cocos2dx.javascript;
+package com.shunchengfeng.game.kissdonuts;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
+
+import com.cocos.CCPush;
+
+import cn.sharesdk.ShareSDKUtils;
 import android.content.pm.ActivityInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -56,6 +60,10 @@ public class AppActivity extends Cocos2dxActivity{
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
         hostIPAdress = getHostIpAddress();
+        ShareSDKUtils.prepare();
+        CCPush.init(getApplicationContext());
+     // 开启日志模式
+        CCPush.setDebugMode(true);
     }
     
     @Override
