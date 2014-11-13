@@ -29,7 +29,7 @@ bool jsb_register_shareContent(JSContext* cx,uint32_t argc,JS::Value* vp)
     content -> setObject(CCString::createWithFormat("nice！ I got %d score,what about you?",score), "content");
     content -> setObject(CCString::create("http://ww2.sinaimg.cn/large/84034e23gw1elgmnj7hjej203c03cq2x.jpg"), "image");
     content -> setObject(CCString::create("Kiss Donuts"), "title");
-    content -> setObject(CCString::create("Kiss Donuts"), "description");
+    content -> setObject(CCString::createWithFormat("nice！ I got %d score,what about you?",score), "description");
     content -> setObject(CCString::create("http://game.shunchengfeng.com/kissdonuts"), "url");
     content -> setObject(CCString::createWithFormat("%d", C2DXContentTypeNews), "type");
     
