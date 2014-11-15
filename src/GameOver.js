@@ -108,7 +108,37 @@ GameOver = cc.LayerColor.extend({
             anchorY: 0.5
         });
 
-        var menu = new cc.Menu([restartItem,shareItem]);
+        var appItem = new cc.MenuItemImage(
+            res.APPLEPNG,
+            res.APPLEPNG,
+            function () {
+                //cc.log("Share Menu is clicked!");
+                //ShareSDKHelper.share(this._score);
+                //jsb_register_shareContent(this._score);
+            }, this);
+        appItem.attr({
+            x: size.width / 3,
+            y: (size.height >> 1) - 260,
+            anchorX: 0.5,
+            anchorY: 0.5
+        });
+
+        var androidItem = new cc.MenuItemImage(
+            res.ANDROIDPNG,
+            res.ANDROIDPNG,
+            function () {
+                //cc.log("Share Menu is clicked!");
+                //ShareSDKHelper.share(this._score);
+                //jsb_register_shareContent(this._score);
+            }, this);
+        androidItem.attr({
+            x: size.width*2 / 3,
+            y: (size.height >> 1) - 260,
+            anchorX: 0.5,
+            anchorY: 0.5
+        });
+
+        var menu = new cc.Menu([restartItem,shareItem,appItem,androidItem]);
         menu.x = 0;
         menu.y = 0;
         this.addChild(menu, 1);

@@ -46,7 +46,7 @@ cc.LoaderScene = cc.Scene.extend({
         var logoHeight = 200;
 
         // bg
-        var bgLayer = self._bgLayer = new cc.LayerColor(cc.color(32, 32, 32, 255));
+        var bgLayer = self._bgLayer = new cc.LayerColor(cc.color(255, 255, 255, 255));
         bgLayer.setPosition(cc.visibleRect.bottomLeft);
         self.addChild(bgLayer, 0);
 
@@ -65,7 +65,7 @@ cc.LoaderScene = cc.Scene.extend({
         //loading percent
         var label = self._label = cc.LabelTTF.create("Loading... 0%", "Arial", fontSize);
         label.setPosition(cc.pAdd(cc.visibleRect.center, cc.p(0, lblHeight)));
-        label.setColor(cc.color(180, 180, 180));
+        label.setColor(cc.color(32, 32, 32));
         bgLayer.addChild(this._label, 10);
         return true;
     },

@@ -19,7 +19,9 @@ var res = {
         TITLE_PNG:'res/title.png',
         GameOver:'res/gameover.png',
         AllowPNG:'res/arrow.png',
-        IconPNG:'res/Icon.png'
+        IconPNG:'res/Icon.png',
+        APPLEPNG:'res/apple.png',
+        ANDROIDPNG:'res/android.png'
 };
 
 var g_resources = [
