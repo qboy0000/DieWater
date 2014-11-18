@@ -112,6 +112,7 @@ GameOver = cc.LayerColor.extend({
             res.APPLEPNG,
             res.APPLEPNG,
             function () {
+                window.location.href="https://itunes.apple.com/us/app/kissdonuts/id931179164";
                 //cc.log("Share Menu is clicked!");
                 //ShareSDKHelper.share(this._score);
                 //jsb_register_shareContent(this._score);
@@ -127,6 +128,7 @@ GameOver = cc.LayerColor.extend({
             res.ANDROIDPNG,
             res.ANDROIDPNG,
             function () {
+                window.location.href = "android/kissdonuts-release.apk"
                 //cc.log("Share Menu is clicked!");
                 //ShareSDKHelper.share(this._score);
                 //jsb_register_shareContent(this._score);

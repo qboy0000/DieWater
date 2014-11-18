@@ -55,7 +55,8 @@ cc.game.onStart = function(){
     //if (window.innerHeight)
     //winHeight = document.documentElement.clientHeight;
     //cc.view.adjustViewPort(true);
-    cc.view.setDesignResolutionSize(640, winHeight, cc.ResolutionPolicy.SHOW_ALL);
+    var mode = cc.sys.isMobile && window.navigator.userAgent.indexOf("MicroMessenger") != -1 ? cc.ResolutionPolicy.FIXED_WIDTH : cc.sys.isMobile ? cc.ResolutionPolicy.FIXED_WIDTH : cc.ResolutionPolicy.SHOW_ALL;
+    cc.view.setDesignResolutionSize(640, winHeight, mode);
     //cc.view.resizeWithBrowserSize(true);
     //jsb.reflection.callStaticMethod
     //load resources
