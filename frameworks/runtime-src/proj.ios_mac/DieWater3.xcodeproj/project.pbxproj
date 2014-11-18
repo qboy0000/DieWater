@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101F7B211A1B804C00A343CF /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 107B879119E1A47D00C1732B /* libGoogleAdMobAds.a */; };
+		101F7B231A1B80BE00A343CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101F7B221A1B80BE00A343CF /* MediaPlayer.framework */; };
+		101F7B251A1B80D600A343CF /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101F7B241A1B80D600A343CF /* EventKit.framework */; };
+		101F7B271A1B80DE00A343CF /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 101F7B261A1B80DE00A343CF /* EventKitUI.framework */; };
 		104A4ABB19E6ED4600FE48D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 104A4ABA19E6ED4600FE48D4 /* Images.xcassets */; };
 		107B878119E194CE00C1732B /* AdmobHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 107B878019E194CE00C1732B /* AdmobHelper.mm */; };
 		107B878419E19C9900C1732B /* Admob_JSB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 107B878319E19C9900C1732B /* Admob_JSB.cpp */; };
-		107B879219E1A47D00C1732B /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 107B879119E1A47D00C1732B /* libGoogleAdMobAds.a */; };
 		107B879419E1AA9800C1732B /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107B879319E1AA9800C1732B /* AdSupport.framework */; };
 		107B879619E1AAA100C1732B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107B879519E1AAA100C1732B /* AudioToolbox.framework */; };
 		107B879819E1AAA900C1732B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107B879719E1AAA900C1732B /* AVFoundation.framework */; };
@@ -27,7 +30,6 @@
 		107B886E19E2E0D200C1732B /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 107B887019E2E0D200C1732B /* Localization.strings */; };
 		1083C17519E435030035EFDB /* FacebookConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C15319E435030035EFDB /* FacebookConnection.framework */; };
 		1083C17619E435030035EFDB /* SinaWeiboConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C15419E435030035EFDB /* SinaWeiboConnection.framework */; };
-		1083C17719E435030035EFDB /* TwitterConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C15519E435030035EFDB /* TwitterConnection.framework */; };
 		1083C17819E435030035EFDB /* WeChatConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C15619E435030035EFDB /* WeChatConnection.framework */; };
 		1083C17919E435030035EFDB /* AGCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C15819E435030035EFDB /* AGCommon.framework */; };
 		1083C17A19E435030035EFDB /* ShareSDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1083C15919E435030035EFDB /* ShareSDKLocalizable.strings */; };
@@ -39,14 +41,6 @@
 		1083C18019E435030035EFDB /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C16719E435030035EFDB /* ShareSDK.framework */; };
 		1083C18119E435030035EFDB /* ShareSDKFlatShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1083C16919E435030035EFDB /* ShareSDKFlatShareViewUI.bundle */; };
 		1083C18219E435030035EFDB /* ShareSDKFlatShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C16A19E435030035EFDB /* ShareSDKFlatShareViewUI.framework */; };
-		1083C18319E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1083C16B19E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.bundle */; };
-		1083C18419E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C16C19E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.framework */; };
-		1083C18519E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1083C16D19E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.bundle */; };
-		1083C18619E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C16E19E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.framework */; };
-		1083C18819E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1083C17019E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.bundle */; };
-		1083C18919E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C17119E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.framework */; };
-		1083C18A19E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1083C17219E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.bundle */; };
-		1083C18B19E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C17319E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.framework */; };
 		1083C18C19E435030035EFDB /* ShareSDKShareActionSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1083C17419E435030035EFDB /* ShareSDKShareActionSheet.framework */; };
 		1083C1A419E435D70035EFDB /* C2DXShareSDK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1083C19919E435D70035EFDB /* C2DXShareSDK.cpp */; };
 		1083C1A619E435D70035EFDB /* C2DXiOSShareSDK.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1083C1A019E435D70035EFDB /* C2DXiOSShareSDK.mm */; };
@@ -54,10 +48,6 @@
 		10A034EC19DD071500266A78 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10A034EB19DD071500266A78 /* GameKit.framework */; };
 		10A034EF19DD0CE700266A78 /* GameCenter_Bridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10A034ED19DD0CE700266A78 /* GameCenter_Bridge.cpp */; };
 		10A034FB19DFF2A100266A78 /* GCAPI_JSB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10A034FA19DFF2A100266A78 /* GCAPI_JSB.cpp */; };
-		1A676829180E9C060076BC67 /* libchipmunk Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB4C180E9ACB004C840B /* libchipmunk Mac.a */; };
-		1A67682A180E9C060076BC67 /* libcocos2dx Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB48180E9ACB004C840B /* libcocos2dx Mac.a */; };
-		1A67682B180E9C060076BC67 /* libcocos2dx-extensions Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB4A180E9ACB004C840B /* libcocos2dx-extensions Mac.a */; };
-		1A67682C180E9C060076BC67 /* libCocosDenshion Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB50180E9ACB004C840B /* libCocosDenshion Mac.a */; };
 		1A676838180E9C1E0076BC67 /* libchipmunk iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB5A180E9ACB004C840B /* libchipmunk iOS.a */; };
 		1A676839180E9C1E0076BC67 /* libcocos2dx iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB56180E9ACB004C840B /* libcocos2dx iOS.a */; };
 		1A67683A180E9C1E0076BC67 /* libcocos2dx-extensions iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB58180E9ACB004C840B /* libcocos2dx-extensions iOS.a */; };
@@ -169,34 +159,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1A67681F180E9BF70076BC67 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
-			remoteInfo = "cocos2dx Mac";
-		};
-		1A676821180E9BF70076BC67 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A03F2FC117814595006731B9;
-			remoteInfo = "cocos2dx-extensions Mac";
-		};
-		1A676823180E9BF70076BC67 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A03F2B781780BD04006731B9;
-			remoteInfo = "chipmunk Mac";
-		};
-		1A676825180E9BF70076BC67 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A03F2E9817814268006731B9;
-			remoteInfo = "CocosDenshion Mac";
-		};
 		1A67682E180E9C110076BC67 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
@@ -224,41 +186,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A07A4F9F178387730073F6A7;
 			remoteInfo = "CocosDenshion iOS";
-		};
-		1AC6FB47180E9ACB004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1551A33F158F2AB200E66CFE;
-			remoteInfo = "cocos2dx Mac";
-		};
-		1AC6FB49180E9ACB004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A03F2FD617814595006731B9;
-			remoteInfo = "cocos2dx-extensions Mac";
-		};
-		1AC6FB4B180E9ACB004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A03F2CB81780BD04006731B9;
-			remoteInfo = "chipmunk Mac";
-		};
-		1AC6FB4D180E9ACB004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A03F2D9B1780BDF7006731B9;
-			remoteInfo = "box2d Mac";
-		};
-		1AC6FB4F180E9ACB004C840B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1AC6FB34180E9ACB004C840B /* cocos2d_libs.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A03F2ED617814268006731B9;
-			remoteInfo = "CocosDenshion Mac";
 		};
 		1AC6FB55180E9ACB004C840B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -326,6 +253,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		101F7B221A1B80BE00A343CF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		101F7B241A1B80D600A343CF /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
+		101F7B261A1B80DE00A343CF /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.0.sdk/System/Library/Frameworks/EventKitUI.framework; sourceTree = DEVELOPER_DIR; };
 		104A4ABA19E6ED4600FE48D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "DieWater3 iOS/Images.xcassets"; sourceTree = "<group>"; };
 		107B877E19E194CE00C1732B /* AdmobHelper-Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AdmobHelper-Interface.h"; path = "ios/AdmobHelper-Interface.h"; sourceTree = "<group>"; };
 		107B877F19E194CE00C1732B /* AdmobHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdmobHelper.h; path = ios/AdmobHelper.h; sourceTree = "<group>"; };
@@ -530,10 +460,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C037820F18BF77DE00FE4F13 /* libjsbindings Mac.a in Frameworks */,
-				1A676829180E9C060076BC67 /* libchipmunk Mac.a in Frameworks */,
-				1A67682A180E9C060076BC67 /* libcocos2dx Mac.a in Frameworks */,
-				1A67682B180E9C060076BC67 /* libcocos2dx-extensions Mac.a in Frameworks */,
-				1A67682C180E9C060076BC67 /* libCocosDenshion Mac.a in Frameworks */,
 				502380DC17EBB88200990C9B /* libcurl.dylib in Frameworks */,
 				509D4A8817EBB24E00697056 /* libsqlite3.dylib in Frameworks */,
 				509D4A8917EBB24E00697056 /* libz.dylib in Frameworks */,
@@ -553,6 +479,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101F7B271A1B80DE00A343CF /* EventKitUI.framework in Frameworks */,
+				101F7B251A1B80D600A343CF /* EventKit.framework in Frameworks */,
+				101F7B231A1B80BE00A343CF /* MediaPlayer.framework in Frameworks */,
+				101F7B211A1B804C00A343CF /* libGoogleAdMobAds.a in Frameworks */,
 				107B885919E25BC200C1732B /* Security.framework in Frameworks */,
 				1083C18C19E435030035EFDB /* ShareSDKShareActionSheet.framework in Frameworks */,
 				107B885719E25BA500C1732B /* libz.1.2.5.dylib in Frameworks */,
@@ -569,32 +499,26 @@
 				107B879C19E1AAB900C1732B /* MessageUI.framework in Frameworks */,
 				1083C18219E435030035EFDB /* ShareSDKFlatShareViewUI.framework in Frameworks */,
 				107B879819E1AAA900C1732B /* AVFoundation.framework in Frameworks */,
-				1083C18919E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.framework in Frameworks */,
 				107B879619E1AAA100C1732B /* AudioToolbox.framework in Frameworks */,
 				107B879419E1AA9800C1732B /* AdSupport.framework in Frameworks */,
 				10A034EC19DD071500266A78 /* GameKit.framework in Frameworks */,
 				C037820C18BF77C500FE4F13 /* libjsbindings iOS.a in Frameworks */,
 				1A676838180E9C1E0076BC67 /* libchipmunk iOS.a in Frameworks */,
 				1083C18019E435030035EFDB /* ShareSDK.framework in Frameworks */,
-				1083C18419E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.framework in Frameworks */,
 				1A676839180E9C1E0076BC67 /* libcocos2dx iOS.a in Frameworks */,
 				1083C17919E435030035EFDB /* AGCommon.framework in Frameworks */,
-				1083C18B19E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.framework in Frameworks */,
 				1A67683A180E9C1E0076BC67 /* libcocos2dx-extensions iOS.a in Frameworks */,
 				1A67683B180E9C1E0076BC67 /* libCocosDenshion iOS.a in Frameworks */,
 				D6B061241803AB9F0077942B /* CoreMotion.framework in Frameworks */,
 				1A82F5FB169AC92500C4B13A /* libsqlite3.dylib in Frameworks */,
-				1083C18619E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.framework in Frameworks */,
 				D454520C156E22BD00887EB5 /* libz.dylib in Frameworks */,
 				A92275421517C094001B78AA /* QuartzCore.framework in Frameworks */,
 				A92275441517C094001B78AA /* OpenGLES.framework in Frameworks */,
 				1083C17C19E435030035EFDB /* ShareSDKCoreService.framework in Frameworks */,
-				107B879219E1A47D00C1732B /* libGoogleAdMobAds.a in Frameworks */,
 				A92275461517C094001B78AA /* OpenAL.framework in Frameworks */,
 				A922754C1517C094001B78AA /* UIKit.framework in Frameworks */,
 				A922754E1517C094001B78AA /* Foundation.framework in Frameworks */,
 				1083C17619E435030035EFDB /* SinaWeiboConnection.framework in Frameworks */,
-				1083C17719E435030035EFDB /* TwitterConnection.framework in Frameworks */,
 				A92275501517C094001B78AA /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -773,11 +697,6 @@
 		1AC6FB35180E9ACB004C840B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1AC6FB48180E9ACB004C840B /* libcocos2dx Mac.a */,
-				1AC6FB4A180E9ACB004C840B /* libcocos2dx-extensions Mac.a */,
-				1AC6FB4C180E9ACB004C840B /* libchipmunk Mac.a */,
-				1AC6FB4E180E9ACB004C840B /* libbox2d Mac.a */,
-				1AC6FB50180E9ACB004C840B /* libCocosDenshion Mac.a */,
 				1AC6FB56180E9ACB004C840B /* libcocos2dx iOS.a */,
 				1AC6FB58180E9ACB004C840B /* libcocos2dx-extensions iOS.a */,
 				1AC6FB5A180E9ACB004C840B /* libchipmunk iOS.a */,
@@ -925,6 +844,9 @@
 		A92275401517C094001B78AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				101F7B261A1B80DE00A343CF /* EventKitUI.framework */,
+				101F7B241A1B80D600A343CF /* EventKit.framework */,
+				101F7B221A1B80BE00A343CF /* MediaPlayer.framework */,
 				107B885819E25BC200C1732B /* Security.framework */,
 				107B885619E25BA500C1732B /* libz.1.2.5.dylib */,
 				107B885419E25B9F00C1732B /* libicucore.dylib */,
@@ -1054,10 +976,6 @@
 			);
 			dependencies = (
 				C037820E18BF77D100FE4F13 /* PBXTargetDependency */,
-				1A676820180E9BF70076BC67 /* PBXTargetDependency */,
-				1A676822180E9BF70076BC67 /* PBXTargetDependency */,
-				1A676824180E9BF70076BC67 /* PBXTargetDependency */,
-				1A676826180E9BF70076BC67 /* PBXTargetDependency */,
 			);
 			name = "DieWater3 Mac";
 			productName = DieWater3;
@@ -1071,7 +989,7 @@
 				A92275391517C094001B78AA /* Sources */,
 				A922753A1517C094001B78AA /* Frameworks */,
 				A922753B1517C094001B78AA /* Resources */,
-				3EC03834196541CD00D72B70 /* ShellScript */,
+				3EC03834196541CD00D72B70 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -1130,41 +1048,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		1AC6FB48180E9ACB004C840B /* libcocos2dx Mac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libcocos2dx Mac.a";
-			remoteRef = 1AC6FB47180E9ACB004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AC6FB4A180E9ACB004C840B /* libcocos2dx-extensions Mac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libcocos2dx-extensions Mac.a";
-			remoteRef = 1AC6FB49180E9ACB004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AC6FB4C180E9ACB004C840B /* libchipmunk Mac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libchipmunk Mac.a";
-			remoteRef = 1AC6FB4B180E9ACB004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AC6FB4E180E9ACB004C840B /* libbox2d Mac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libbox2d Mac.a";
-			remoteRef = 1AC6FB4D180E9ACB004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1AC6FB50180E9ACB004C840B /* libCocosDenshion Mac.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libCocosDenshion Mac.a";
-			remoteRef = 1AC6FB4F180E9ACB004C840B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		1AC6FB56180E9ACB004C840B /* libcocos2dx iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1238,11 +1121,9 @@
 			files = (
 				1AE159EC18C9DF3600FCA372 /* project.json in Resources */,
 				104A4ABB19E6ED4600FE48D4 /* Images.xcassets in Resources */,
-				1083C18519E435030035EFDB /* ShareSDKiPadSimpleShareViewUI.bundle in Resources */,
 				1AD7E0A818C9DB93004817A6 /* main.js in Resources */,
 				509D4ABE17EBB2AB00697056 /* Default.png in Resources */,
 				C05D1C171923467600B808A4 /* config.json in Resources */,
-				1083C18A19E435030035EFDB /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */,
 				5091731E17ECDF7A00D62437 /* Icon-80.png in Resources */,
 				107B886E19E2E0D200C1732B /* Localization.strings in Resources */,
 				5091731F17ECDF7A00D62437 /* Icon-100.png in Resources */,
@@ -1256,7 +1137,6 @@
 				3E12D1A51957FA03002FF0FD /* script in Resources */,
 				C0799CB918BAE62000E9C828 /* res in Resources */,
 				509D4AC517EBB2AB00697056 /* Icon-144.png in Resources */,
-				1083C18819E435030035EFDB /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
 				509D4AC317EBB2AB00697056 /* Icon-114.png in Resources */,
 				509D4ABD17EBB2AB00697056 /* Default-568h@2x.png in Resources */,
 				509D4ABF17EBB2AB00697056 /* Default@2x.png in Resources */,
@@ -1265,7 +1145,6 @@
 				509D4AC217EBB2AB00697056 /* Icon-76.png in Resources */,
 				5091731B17ECDF7A00D62437 /* Icon-40.png in Resources */,
 				5091731C17ECDF7A00D62437 /* Icon-50.png in Resources */,
-				1083C18319E435030035EFDB /* ShareSDKiPadDefaultShareViewUI.bundle in Resources */,
 				509D4AC417EBB2AB00697056 /* Icon-120.png in Resources */,
 				5091731D17ECDF7A00D62437 /* Icon-58.png in Resources */,
 			);
@@ -1287,13 +1166,14 @@
 			shellPath = /bin/sh;
 			shellScript = "find ${SRCROOT}/../../../src/ -name \"*\" -exec touch -cm {} \\;\nfind ${SRCROOT}/../../../res/ -name \"*\" -exec touch -cm {} \\;";
 		};
-		3EC03834196541CD00D72B70 /* ShellScript */ = {
+		3EC03834196541CD00D72B70 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1379,26 +1259,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1A676820180E9BF70076BC67 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "cocos2dx Mac";
-			targetProxy = 1A67681F180E9BF70076BC67 /* PBXContainerItemProxy */;
-		};
-		1A676822180E9BF70076BC67 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "cocos2dx-extensions Mac";
-			targetProxy = 1A676821180E9BF70076BC67 /* PBXContainerItemProxy */;
-		};
-		1A676824180E9BF70076BC67 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "chipmunk Mac";
-			targetProxy = 1A676823180E9BF70076BC67 /* PBXContainerItemProxy */;
-		};
-		1A676826180E9BF70076BC67 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CocosDenshion Mac";
-			targetProxy = 1A676825180E9BF70076BC67 /* PBXContainerItemProxy */;
-		};
 		1A67682F180E9C110076BC67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "cocos2dx iOS";
@@ -1599,13 +1459,13 @@
 					"$(PROJECT_DIR)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/ShareSDK/Extend/YiXinSDK",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../js-bindings/cocos2d-x/cocos $(SRCROOT)/../../js-bindings/cocos2d-x/cocos/platform/ios $(SRCROOT)/../../js-bindings/external/spidermonkey/include/ios $(SRCROOT)/../../js-bindings/cocos2d-x/plugin/jsbindings/auto $(SRCROOT)/../../js-bindings/cocos2d-x/plugin/jsbindings/manual";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -1649,13 +1509,13 @@
 					"$(PROJECT_DIR)/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/ShareSDK/Extend/YiXinSDK",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/../../js-bindings/cocos2d-x/cocos $(SRCROOT)/../../js-bindings/cocos2d-x/cocos/platform/ios $(SRCROOT)/../../js-bindings/external/spidermonkey/include/ios $(SRCROOT)/../../js-bindings/cocos2d-x/plugin/jsbindings/auto $(SRCROOT)/../../js-bindings/cocos2d-x/plugin/jsbindings/manual";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

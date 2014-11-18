@@ -9,7 +9,6 @@
 #include "C2DXiOSShareSDK.h"
 #import <ShareSDK/ShareSDK.h>
 #import <AGCommon/CMRegexKitLite.h>
-#include "AppController.h"
 
 
 static UIView *_refView = nil;
@@ -582,102 +581,69 @@ void C2DXiOSShareSDK::showShareMenu(CCArray *platTypes, CCDictionary *content, C
     id<ISSContainer> container = nil;
     
     NSMutableArray *shareList = nil;
-//    if (platTypes && platTypes -> count() > 0)
-//    {
-//        shareList = [NSMutableArray array];
-//        for (int i = 0; i < platTypes -> count(); i++)
-//        {
-//            CCInteger *type = (CCInteger *)platTypes -> objectAtIndex(i);
-//            [shareList addObject:[NSNumber numberWithInteger:type -> getValue()]];
-//        }
-//    }else{
-//        shareList = [NSMutableArray array];
-//        [shareList addObject:[NSNumber numberWithInt:ShareTypeSinaWeibo]];
-//        [shareList addObject:[NSNumber numberWithInt:ShareTypeFacebook]];
-//        [shareList addObject:[NSNumber numberWithInt:ShareTypeTwitter]];
-//        [shareList addObject:[NSNumber numberWithInt:ShareTypeWeixiFav]];
-//        [shareList addObject:[NSNumber numberWithInt:ShareTypeWeixiSession]];
-//        [shareList addObject:[NSNumber numberWithInt:ShareTypeWeixiTimeline]];
-//    }
+    if (platTypes && platTypes -> count() > 0)
+    {
+        shareList = [NSMutableArray array];
+        for (int i = 0; i < platTypes -> count(); i++)
+        {
+            CCInteger *type = (CCInteger *)platTypes -> objectAtIndex(i);
+            [shareList addObject:[NSNumber numberWithInteger:type -> getValue()]];
+        }
+    }
     
     //设置iPad菜单位置
     pt = CCDirector::sharedDirector() -> convertToUI(pt);
-//    if (!_refView)
-//    {
-//        CGRect nr = CGRectMake(100, 100, 1, 1);
-//        //_refView = [[UIView alloc] initWithFrame:nr];
-//    }
+    if (!_refView)
+    {
+        _refView = [[UIView alloc] initWithFrame:CGRectMake(pt.x, pt.y, 1, 1)];
+    }
     
-    UIApplication* app = [UIApplication sharedApplication];
-    AppController* appctrl = (AppController*)[app delegate];
-    
-    //[[UIApplication sharedApplication].keyWindow addSubview:_refView];
+    [[UIApplication sharedApplication].keyWindow addSubview:_refView];
     
     container = [ShareSDK container];
-    [container setIPadContainerWithView:[appctrl.viewController view] rect:CGRectMake(0,0,1,1) arrowDirect:direction];
+    [container setIPadContainerWithView:_refView arrowDirect:direction];
     
     [ShareSDK showShareActionSheet:container
                          shareList:shareList
-                        content:publishContent
-                        statusBarTips:YES
+                           content:publishContent
+                     statusBarTips:NO
                        authOptions:nil
                       shareOptions:nil
-                           targets:nil
                             result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                
+                                CCDictionary *shareInfo = NULL;
+                                CCDictionary *errorInfo = NULL;
+                                
                                 if (state == SSResponseStateSuccess)
                                 {
-                                    //shareInfo = convertNSDictToCCDict([statusInfo sourceData]);
+                                    shareInfo = convertNSDictToCCDict([statusInfo sourceData]);
                                 }
+                                
+                                if (error)
+                                {
+                                    NSInteger errCode = [error errorCode];
+                                    NSString *errDesc = [error errorDescription];
+                                    
+                                    errorInfo = CCDictionary::create();
+                                    errorInfo -> setObject(CCInteger::create(errCode), "error_code");
+                                    if (errDesc)
+                                    {
+                                        errorInfo -> setObject(CCString::create([errDesc UTF8String]), "error_msg");
+                                    }
+                                }
+                                
+                                if (callback)
+                                {
+                                    callback ((C2DXResponseState)state, (C2DXPlatType)type, shareInfo, errorInfo);
+                                }
+                                
                                 if (_refView)
                                 {
                                     //移除视图
                                     [_refView removeFromSuperview];
                                 }
-    }];
-    
-
-    
-//    [ShareSDK showShareActionSheet:container
-//                         shareList:shareList
-//                           content:publishContent
-//                     statusBarTips:NO
-//                       authOptions:nil
-//                      shareOptions:nil
-//                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-//                                
-//                                CCDictionary *shareInfo = NULL;
-//                                CCDictionary *errorInfo = NULL;
-//                                
-//                                if (state == SSResponseStateSuccess)
-//                                {
-//                                    shareInfo = convertNSDictToCCDict([statusInfo sourceData]);
-//                                }
-//                                
-//                                if (error)
-//                                {
-//                                    NSInteger errCode = [error errorCode];
-//                                    NSString *errDesc = [error errorDescription];
-//                                    
-//                                    errorInfo = CCDictionary::create();
-//                                    errorInfo -> setObject(CCInteger::create(errCode), "error_code");
-//                                    if (errDesc)
-//                                    {
-//                                        errorInfo -> setObject(CCString::create([errDesc UTF8String]), "error_msg");
-//                                    }
-//                                }
-//                                
-//                                if (callback)
-//                                {
-//                                    callback ((C2DXResponseState)state, (C2DXPlatType)type, shareInfo, errorInfo);
-//                                }
-//                                
-//                                if (_refView)
-//                                {
-//                                    //移除视图
-//                                    [_refView removeFromSuperview];
-//                                }
-//                                
-//                            }];
+                                
+                            }];
 }
 
 void C2DXiOSShareSDK::showShareView(C2DXPlatType platType, CCDictionary *content, C2DXShareResultEvent callback)
