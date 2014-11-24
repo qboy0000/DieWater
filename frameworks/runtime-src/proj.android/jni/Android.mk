@@ -29,6 +29,7 @@ LOCAL_SRC_FILES := \
 ../../Classes/VisibleRect.cpp \
 ../../Classes/AppDelegate.cpp \
 ../../Classes/ConfigParser.cpp \
+../../Classes/Admob_JSB.cpp \
 javascript/Runtime_android.cpp \
 javascript/main.cpp
 

@@ -521,7 +521,7 @@ GameLayer = cc.Layer.extend({
     },
     onEnter:function(){
         this._super();
-
+        jsb_register_addAd();
     }
 });
 
