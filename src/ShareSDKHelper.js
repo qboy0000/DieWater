@@ -38,11 +38,8 @@ ShareSDKHelper.auth = function()
 
 }
 
-ShareSDKHelper.share = function(score,callback)
+ShareSDKHelper.share = function(callback)
 {
-    if(jsb_register_shareContent){
-        jsb_register_shareContent(this._score);
-    }
 
     //ShareSDK.shareContent()
     //ShareSDK.shareContent(ShareSDK.platformID.SinaWeibo, params, callback);

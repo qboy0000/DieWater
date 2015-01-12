@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.shunchengfeng.game.kissdonuts"
+      package="com.shunchengfeng.DieWater3"
       android:versionCode="1"
       android:versionName="1.0"
       android:installLocation="auto">
@@ -14,85 +14,24 @@
         <!-- Tell NativeActivity the name of our .so -->
         <meta-data android:name="android.app.lib_name" android:value="cocos2djs" />
         
-        <activity android:name="com.shunchengfeng.game.kissdonuts.AppActivity"
+        <activity android:name="org.cocos2dx.javascript.AppActivity"
                   android:label="@string/app_name"
                   android:screenOrientation="landscape"
                   android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                   android:configChanges="orientation">
-		
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity
-            android:name="cn.sharesdk.framework.ShareSDKUIShell"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-            <intent-filter>
-                <data android:scheme="db-7janx53ilz11gbs" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <data android:scheme="tencent100371282" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <!--微信分享回调 -->
-		<activity
-  android:name=".wxapi.WXEntryActivity"
-  android:theme="@android:style/Theme.Translucent.NoTitleBar"
-  android:configChanges="keyboardHidden|orientation|screenSize"
-  android:exported="true"
-  android:screenOrientation="portrait" />
-		
-		 <!-- push所用的核心服务声明 -->
-    <service
-        android:name="com.cocos.push.service.CCPushService"
-        android:enabled="true"
-        android:exported="true"
-        android:process=":cocos.push.service">
-        <intent-filter>
-            <action android:name="cocos.push.service" />
-        </intent-filter>
-    </service>
-    <!-- 请创建广播接收者类，该类需要继承CCPushRecevier类 -->
-<!--     <receiver android:name="com.shunchengfeng.game.kissdonuts.MyCCPushRecevier">
-        <intent-filter>
-            <action android:name="com.cocos.push.service.action.MESSAGE" />
-            <action android:name="com.cocos.push.service.action.MESSAGE_V2" />
-            接收启停push、设置删除标签、设置删除帐号等操作的反馈
-            <action android:name="com.cocos.push.service.action.RECEIVE" />
-        </intent-filter>
-    </receiver> -->
-    <!-- push SDK内置的广播接收者类声明，用于接收push推送的消息 -->
-    <receiver
-        android:name="com.cocos.push.client.CCPushClientReceiver"
-        android:process=":cocos.push.service">
-        <intent-filter>
-            <action android:name="android.intent.action.BOOT_COMPLETED" />
-            <action android:name="com.cocos.push.service.action.notification.SHOW" />
-            <action android:name="com.cocos.push.service.action.notification.CANCEL" />
-            <action android:name="com.cocos.push.service.action.UPDATE" />
-            <action android:name="com.cocos.push.service.action.AUTOCHECK" />
-        </intent-filter>
-    </receiver>
-    <!-- 请先登录开发者平台并添加应用，将生成的“APP id”填入此项 -->
-    <meta-data android:name="cocos_aid" android:value="1000001035" />
-    <meta-data android:name="cocos_cid" android:value="self" />
     </application>
 
-<!--     <supports-screens android:anyDensity="true"
+    <supports-screens android:anyDensity="true"
                       android:smallScreens="true"
                       android:normalScreens="true"
                       android:largeScreens="true"
-                      android:xlargeScreens="true"/> -->
+                      android:xlargeScreens="true"/>
 					  
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>  
@@ -102,14 +41,4 @@
     
   	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
  	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
- 	<uses-permission android:name="android.permission.GET_TASKS" />
-
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    
-	    <!-- push service 运行需要的权限 -->
-	<uses-permission android:name="android.permission.VIBRATE" />
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 </manifest> 

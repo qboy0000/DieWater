@@ -21,7 +21,6 @@
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include "platform/android/CCJavascriptJavaBridge.h"
-#include "ShareSDK_JSB.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
 #include "platform/ios/JavaScriptObjCBridge.h"
 #include "GCAPI_JSB.h"
@@ -31,8 +30,6 @@
 
 #include "Runtime.h"
 #include "ConfigParser.h"
-
-#include "C2DXShareSDK.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -102,7 +99,6 @@ bool AppDelegate::applicationDidFinishLaunching()
     
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     sc->addRegisterCallback(JavascriptJavaBridge::_js_register);
-    sc->addRegisterCallback(JSB_register_ShareSDK);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS|| CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
     sc->addRegisterCallback(JavaScriptObjCBridge::_js_register);
     sc->addRegisterCallback(JSB_register_GCAPI);
@@ -114,8 +110,6 @@ bool AppDelegate::applicationDidFinishLaunching()
 //    if (startRuntime())
 //        return true;
 #endif
-
-    cn::sharesdk::C2DXShareSDK::open(__String::create("3f9896682cc0"),true);
 
     sc->start();
     sc->runScript("script/jsb_boot.js");

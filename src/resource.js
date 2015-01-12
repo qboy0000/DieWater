@@ -17,7 +17,7 @@ var res = {
         Effect_MP3:"res/select.mp3",
         BG_PNG:'res/bg.png',
         TITLE_PNG:'res/title.png',
-        GameOver:'res/gameover.png'
+        GameOver:'res/gameover.png',
 };
 
 var g_resources = [
