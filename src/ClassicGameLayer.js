@@ -89,9 +89,6 @@ var ClassicGameLayer = cc.Layer.extend({
 
         this.addWater(5);
 
-
-
-
         this.updateLabel();
 
 //
@@ -135,22 +132,6 @@ var ClassicGameLayer = cc.Layer.extend({
             anchorY: 0.5
         });
 
-//        var ranking = new cc.MenuItemImage(
-//            res.MENUITEM_PNG.RANKING_PNG,
-//            res.MENUITEM_PNG.RANKING_PNG,
-//            function () {
-//                //jsb_register_reportScore(100);
-//                if(jsb_register_ranking){
-//                    jsb_register_ranking();
-//                }
-//            }, this);
-//        ranking.attr({
-//            x: restartItem.x+202,
-//            y: y,
-//            anchorX: 0,
-//            anchorY: 0.5
-//        });
-
         var shareItem = new cc.MenuItemImage(
             res.MENUITEM_PNG.SHARE_S_PNG,
             res.MENUITEM_PNG.SHARE_S_PNG,
@@ -164,6 +145,10 @@ var ClassicGameLayer = cc.Layer.extend({
             anchorX: 0,
             anchorY: 0.5
         });
+
+        var backItem = new cc.MenuItemFont("BACK",function(){
+            
+        },this);
 
         var menu = new cc.Menu([restartItem,shareItem]);
         menu.x = 0;

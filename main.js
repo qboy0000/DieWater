@@ -61,7 +61,7 @@ cc.game.onStart = function(){
     //jsb.reflection.callStaticMethod
     //load resources
     cc.LoaderScene.preload(g_resources, function () {
-        cc.director.runScene(new GameScene());
+        cc.director.runScene(GameScene.getInstance());
     }, this);
 };
 cc.game.run();
