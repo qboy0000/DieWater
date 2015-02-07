@@ -17,6 +17,9 @@
         "src/WaterDrip.js",
         "src/GameOver.js",
         "src/ShareSDKHelper.js",
-        "src/ShareUI.js"
+        "src/ShareUI.js",
+        "src/ClassicGameLayer.js",
+        "src/GameIndexLayer.js",
+        "src/BackGroundLayer.js"
     ]
 }
