@@ -30,7 +30,7 @@ var GameIndexLayer = cc.Layer.extend({
         y -= menuHeight;
 
         var timeModeMenu = new cc.MenuItemFont("Timing Mode",function(){
-
+            GameScene.getInstance().showTimeGameLayer();
         },this);
         timeModeMenu.attr({
             x:x,

@@ -21,7 +21,11 @@ var GameScene = cc.Scene.extend({
         this.showView(gil);
     },
     showClassicGameLayer:function(){
-        var layer = new ClassicGameLayer();
+        var layer = new GameLayer();
+        this.showView(layer);
+    },
+    showTimeGameLayer:function(){
+        var layer = new GameLayer(GameType.TimeingGame);
         this.showView(layer);
     },
     showView:function(v)

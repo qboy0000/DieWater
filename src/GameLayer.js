@@ -3,7 +3,11 @@
  * 经典模式的玩法
  */
 
-var ClassicGameLayer = cc.Layer.extend({
+GameType = {
+    ClassicGame:1,//经典模式
+    TimeingGame:2,//计时模式
+};
+var GameLayer = cc.Layer.extend({
     _horizontalCount: 5,//横向
     _verticalCount: 5,//纵向
     _waterStateArr: null,//水位置状态，0代表无，其他是水的实例
@@ -17,8 +21,10 @@ var ClassicGameLayer = cc.Layer.extend({
     _moveCountLabel: null,
     _bestScoreLable: null,
     _besetScore:0,
-    ctor: function () {
+    _gametype:GameType.ClassicGame,
+    ctor: function (gametype) {
         this._super();
+        this._gametype = gametype||GameType.ClassicGame;
 
         cc.eventManager.addListener({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -91,10 +97,6 @@ var ClassicGameLayer = cc.Layer.extend({
 
         this.updateLabel();
 
-//
-//        if(jsb_register_addAd){
-//            jsb_register_addAd();
-//        }
 
         return true;
     },
@@ -147,10 +149,15 @@ var ClassicGameLayer = cc.Layer.extend({
         });
 
         var backItem = new cc.MenuItemFont("BACK",function(){
-            
+            GameScene.getInstance().showIndexView();
         },this);
 
-        var menu = new cc.Menu([restartItem,shareItem]);
+        backItem.attr({
+            x: 100,
+            y: cc.visibleRect.height - 30
+        });
+
+        var menu = new cc.Menu([restartItem,shareItem,backItem]);
         menu.x = 0;
         menu.y = 0;
         this.addChild(menu, 1);
