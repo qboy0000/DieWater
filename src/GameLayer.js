@@ -93,11 +93,7 @@ var GameLayer = cc.Layer.extend({
         this.addChild(this._moveCountLabel);
         this._moveCountLabel.setFontFillColor(cc.WHITE);
 
-        this.addWater(5);
-
-        this.updateLabel();
-
-
+        this.restart();
         return true;
     },
     restart:function(){
